@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="基础词汇（初级）406 个单词的单词卡词典：按 15 个主题分组，每个词带英式/美式音标、词性、多义项与例句，点一下单词就能听发音。">
+<title>基础词汇（初级）· 406 个单词的单词卡词典</title>
+<style>
+:root{
+  --ink:#14213D;
+  --ink-2:#4A5568;
+  --ink-3:#7C8595;
+  --accent:#3B5BDB;
+  --accent-ink:#2A44AB;
+  --accent-soft:#EDF0FE;
+  --teal:#0E9F6E;
+  --amber-note:#9A6700;
+  --canvas:#FBFBF9;
+  --card:#FFFFFF;
+  --line:#E6E6E1;
+  --line-2:#F0F0EB;
+  --radius-card:24px;
+  --shadow-1:0 1px 2px rgba(20,33,61,.05),0 8px 24px -16px rgba(20,33,61,.18);
+  --shadow-2:0 2px 4px rgba(20,33,61,.06),0 18px 36px -20px rgba(20,33,61,.26);
+  --font-ipa:"Lucida Sans Unicode","Segoe UI",Arial,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--canvas);color:var(--ink);
+  font-family:"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+  font-size:17px;line-height:1.5;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+}
+h1,h2,h3,p,ul,ol{margin:0}
+button{font:inherit}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+.skip{position:absolute;left:-9999px;top:0;background:var(--ink);color:#fff;padding:10px 16px;border-radius:0 0 12px 0;z-index:200}
+.skip:focus{left:0}
+
+/* ---------- hero ---------- */
+.hero{background:#fff;border-bottom:1px solid var(--line);padding:60px 0 44px}
+.eyebrow{font-size:13px;font-weight:700;letter-spacing:.18em;color:var(--accent);text-transform:uppercase}
+h1{font-size:clamp(38px,6.2vw,68px);line-height:1.06;letter-spacing:-.02em;margin-top:14px;font-weight:800}
+h1 .h1sub{color:var(--accent);font-weight:800}
+.lede{margin-top:20px;max-width:780px;font-size:18px;line-height:1.6;color:var(--ink-2)}
+.lede strong{color:var(--ink);font-weight:700}
+.goals{list-style:none;padding:0;margin-top:32px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.goals li{background:var(--canvas);border:1px solid var(--line-2);border-radius:18px;padding:16px 18px 18px}
+.goals b{display:block;font-size:15.5px;font-weight:700;margin:8px 0 6px}
+.goals span{display:block;font-size:14.5px;line-height:1.5;color:var(--ink-3)}
+.goal-num{font-size:12px;font-weight:700;letter-spacing:.14em;color:var(--accent)}
+.stats{display:flex;flex-wrap:wrap;align-items:flex-end;gap:14px 34px;margin-top:32px}
+.stat b{display:block;font-size:30px;font-weight:800;line-height:1;letter-spacing:-.01em}
+.stat span{display:block;font-size:13px;color:var(--ink-3);margin-top:6px}
+.stat + .stat{padding-left:0}
+
+/* ---------- toolbar ---------- */
+.bar{position:sticky;top:0;z-index:40;background:#fff;border-bottom:1px solid var(--line);padding:10px 0}
+.bar .wrap{display:flex;align-items:center;gap:10px 12px;flex-wrap:wrap}
+.search{position:relative;flex:1 1 260px;min-width:0}
+.search svg{position:absolute;left:13px;top:50%;transform:translateY(-50%);color:var(--ink-3);pointer-events:none}
+.search input{
+  width:100%;height:46px;border:1px solid var(--line);border-radius:14px;background:#fff;
+  padding:0 14px 0 40px;font-size:16px;color:var(--ink);
+}
+.search input::placeholder{color:#A2AAB8}
+.search input:focus{outline:2px solid var(--accent);outline-offset:1px;border-color:var(--accent)}
+.search input:disabled{background:#F6F6F3;color:#A2AAB8;cursor:not-allowed}
+.ctrls{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.toggle{height:42px;padding:0 14px;border:1px solid var(--line);border-radius:12px;background:#fff;color:var(--ink-2);font-size:15px;cursor:pointer;transition:background .18s,border-color .18s,color .18s}
+.toggle:hover{border-color:#CFD5E6;color:var(--ink)}
+.toggle:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.toggle[aria-pressed="true"]{background:var(--accent-soft);border-color:#C3CCF6;color:var(--accent-ink);font-weight:600}
+.seg{display:inline-flex;background:#F2F2EE;border-radius:14px;padding:4px;gap:4px}
+.seg button{height:34px;padding:0 14px;border:0;border-radius:10px;background:transparent;color:var(--ink-2);font-size:15px;cursor:pointer;transition:background .18s,color .18s,box-shadow .18s}
+.seg button[aria-pressed="true"]{background:#fff;color:var(--ink);font-weight:600;box-shadow:0 1px 2px rgba(20,33,61,.12)}
+.seg button:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+.meter{display:flex;align-items:center;gap:10px;flex:1 1 200px;min-width:140px}
+.track{flex:1 1 auto;height:6px;background:#EDEDE8;border-radius:999px;overflow:hidden;min-width:60px}
+.fill{height:100%;width:0;background:var(--accent);border-radius:999px;transition:width .3s ease}
+.ptext{font-size:13px;color:var(--ink-3);white-space:nowrap;font-variant-numeric:tabular-nums}
+
+/* ---------- main / chips ---------- */
+main{padding:28px 0 72px}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:4px 0 10px;scrollbar-width:thin}
+.chips::-webkit-scrollbar{height:6px}
+.chips::-webkit-scrollbar-thumb{background:#DFDFD9;border-radius:999px}
+.chip{display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 14px;border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--ink-2);font-size:15px;white-space:nowrap;cursor:pointer;transition:background .18s,border-color .18s,color .18s}
+.chip:hover{border-color:#CDD3E2;color:var(--ink)}
+.chip:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.chip .c-count{font-size:13px;color:var(--ink-3);font-variant-numeric:tabular-nums}
+.chip.is-on{background:var(--ink);border-color:var(--ink);color:#fff;font-weight:600}
+.chip.is-on .c-count{color:rgba(255,255,255,.72)}
+.chip[aria-disabled="true"]{opacity:.42;cursor:not-allowed}
+
+.filter-note{margin:8px 0 22px;font-size:15px;color:var(--ink-3)}
+.filter-note b{color:var(--ink);font-weight:700;font-variant-numeric:tabular-nums}
+
+/* ---------- groups + cards ---------- */
+.group{margin-bottom:52px}
+.g-head{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.g-emoji{width:42px;height:42px;border-radius:13px;background:var(--accent-soft);display:grid;place-items:center;font-size:22px;line-height:1}
+.g-name{font-size:24px;font-weight:800;letter-spacing:-.01em}
+.g-count{font-size:13px;color:var(--ink-3);background:#F2F2EE;border-radius:999px;padding:3px 10px;font-variant-numeric:tabular-nums}
+.g-intro{margin:12px 0 20px;font-size:15.5px;line-height:1.6;color:var(--ink-3);max-width:80ch}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;align-items:start}
+.card{position:relative;background:var(--card);border:1px solid var(--line);border-radius:var(--radius-card);padding:20px 22px 18px;box-shadow:var(--shadow-1);transition:transform .2s,border-color .2s,box-shadow .2s}
+.card:hover{transform:translateY(-2px);border-color:#DADCEC;box-shadow:var(--shadow-2)}
+.card:focus-within{border-color:#C3CCF6}
+.card.is-read::before{content:"";position:absolute;left:0;top:20px;bottom:20px;width:3px;border-radius:0 3px 3px 0;background:var(--teal)}
+.card.is-read{border-color:#D3E9E0}
+.card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
+.word{display:inline-flex;align-items:baseline;gap:8px;margin:0;padding:0;border:0;background:transparent;color:var(--ink);font-size:26px;font-weight:700;line-height:1.2;letter-spacing:-.01em;text-align:left;cursor:pointer;border-radius:10px;transition:color .18s}
+.word:hover{color:var(--accent)}
+.word:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+.spk{font-size:15px;color:var(--ink-3);opacity:.5;transition:opacity .18s,color .18s;transform:translateY(-1px)}
+.word:hover .spk,.word:focus-visible .spk{opacity:1;color:var(--accent)}
+.word.is-speaking{color:var(--accent)}
+.word.is-speaking .spk{opacity:1;color:var(--accent);animation:pulse 900ms ease-in-out infinite alternate}
+@keyframes pulse{from{transform:translateY(-1px) scale(1)}to{transform:translateY(-1px) scale(1.18)}}
+.pos{flex:0 0 auto;margin-top:3px;font-size:12px;color:var(--ink-2);background:#F2F2EE;border-radius:999px;padding:4px 9px;white-space:nowrap}
+.ipa{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;margin:8px 0 12px;font-family:var(--font-ipa);font-size:15px;color:var(--ink-3);line-height:1.4}
+.ipa .u{color:#5A6478}
+.ipa .a{color:#9AA2B0}
+.zh{list-style:none;padding:0;margin:0 0 12px;font-size:16px;line-height:1.55}
+.zh li{position:relative;padding-left:14px;margin-bottom:3px}
+.zh li::before{content:"";position:absolute;left:2px;top:.68em;width:4px;height:4px;border-radius:999px;background:#C7CEDC}
+.alt{margin:0 0 12px;padding:7px 10px;border-radius:10px;background:#F7F7F3;color:var(--ink-3);font-size:13px;line-height:1.5}
+.ex{margin:0;padding-top:10px;border-top:1px dashed var(--line);font-size:15px;line-height:1.5;color:var(--ink-2)}
+.ex-lbl{display:inline-block;margin-right:6px;padding:1px 7px;border-radius:6px;background:#F2F2EE;color:var(--ink-3);font-size:12px;font-weight:600;line-height:1.5;white-space:nowrap}
+.ex-en{color:var(--ink)}
+.exz{display:block;margin-top:4px;font-size:14px;color:var(--ink-3)}
+mark{background:#FFF0C2;color:inherit;border-radius:3px;padding:0 1px}
+.empty{background:#fff;border:1px dashed var(--line);border-radius:var(--radius-card);padding:40px 24px;text-align:center;color:var(--ink-2)}
+.empty b{display:block;font-size:19px;color:var(--ink);margin-bottom:8px}
+.empty button{margin-top:18px;height:46px;padding:0 20px;border:1px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);font-size:16px;cursor:pointer}
+.empty button:hover{border-color:var(--accent);color:var(--accent)}
+
+/* ---------- drill ---------- */
+.drill-wrap{max-width:820px;margin:0 auto}
+.drill-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px;flex-wrap:wrap}
+.drill-group{font-size:15px;color:var(--ink-2);display:inline-flex;align-items:center;gap:8px}
+.drill-nav{display:inline-flex;gap:6px}
+.drill-nav button{height:34px;padding:0 12px;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--ink-2);font-size:14px;cursor:pointer}
+.drill-nav button:hover{border-color:var(--accent);color:var(--accent)}
+.drill-bar{display:flex;align-items:center;gap:10px;margin-left:auto}
+.drill-card{background:#fff;border:1px solid var(--line);border-radius:32px;padding:clamp(24px,4.4vw,46px);box-shadow:var(--shadow-2);text-align:center}
+.big-word{display:inline-flex;align-items:center;gap:14px;margin:0;padding:0;border:0;background:transparent;color:var(--ink);font-size:clamp(36px,7vw,62px);font-weight:800;line-height:1.12;letter-spacing:-.02em;cursor:pointer;transition:color .18s}
+.big-word:hover{color:var(--accent)}
+.big-word:focus-visible{outline:2px solid var(--accent);outline-offset:6px;border-radius:12px}
+.big-word .spk{font-size:clamp(18px,3vw,24px)}
+.big-word.is-speaking{color:var(--accent)}
+.big-word.is-speaking .spk{opacity:1;color:var(--accent);animation:pulse 900ms ease-in-out infinite alternate}
+.drill-ipa{margin-top:12px;font-family:var(--font-ipa);font-size:clamp(15px,2.2vw,18px);color:var(--ink-3)}
+.drill-pos{display:inline-block;margin-top:14px}
+.drill-zh{list-style:none;padding:0;margin:22px auto 0;max-width:520px;text-align:left;font-size:18px;line-height:1.6}
+.drill-zh li{position:relative;padding-left:16px;margin-bottom:5px}
+.drill-zh li::before{content:"";position:absolute;left:2px;top:.72em;width:5px;height:5px;border-radius:999px;background:#C7CEDC}
+.drill-alt{margin:16px auto 0;max-width:520px;padding:8px 12px;border-radius:10px;background:#F7F7F3;color:var(--ink-3);font-size:13px;line-height:1.5}
+.drill-ex{margin:22px auto 0;max-width:560px;padding-top:16px;border-top:1px dashed var(--line);font-size:16.5px;color:var(--ink-2);line-height:1.5}
+.drill-ex .exz{font-size:15px;margin-top:4px}
+.drill-card.hide-zh .drill-zh,.drill-card.hide-zh .drill-alt,.drill-card.hide-zh .drill-ex .exz{display:none}
+.hidden-note{display:none;margin-top:18px;font-size:14px;color:var(--ink-3)}
+.drill-card.hide-zh .hidden-note{display:block}
+.drill-controls{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:26px}
+.btn{height:50px;padding:0 20px;border:1px solid var(--line);border-radius:14px;background:#fff;color:var(--ink);font-size:16px;cursor:pointer;transition:border-color .18s,color .18s,background .18s}
+.btn:hover{border-color:#C6CDE0}
+.btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.btn-primary{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:600}
+.btn-primary:hover{background:var(--accent-ink);border-color:var(--accent-ink);color:#fff}
+.btn[aria-pressed="true"]{background:var(--accent-soft);border-color:#C3CCF6;color:var(--accent-ink);font-weight:600}
+.drill-hint{margin-top:14px;text-align:center;font-size:13.5px;color:var(--ink-3)}
+
+/* ---------- footer ---------- */
+footer{border-top:1px solid var(--line);background:#fff;padding:44px 0 56px}
+footer h2{font-size:15px;font-weight:700;letter-spacing:.02em;margin-bottom:8px}
+.foot-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px 40px}
+.foot-grid p{font-size:14.5px;line-height:1.65;color:var(--ink-3);max-width:62ch}
+.foot-grid p + p{margin-top:0}
+.foot-note{margin-top:32px;font-size:13px;color:#9AA2B0}
+.src-link{color:var(--accent-ink);text-decoration:underline;text-underline-offset:2px;text-decoration-thickness:1px}
+.src-link:hover{color:var(--accent)}
+.src-link:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
+
+/* ---------- toast ---------- */
+.toast{position:fixed;left:50%;bottom:26px;transform:translate(-50%,10px);background:var(--ink);color:#fff;font-size:15px;padding:11px 20px;border-radius:999px;box-shadow:0 12px 28px -12px rgba(20,33,61,.5);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:120;max-width:min(90vw,520px);text-align:center}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+/* ---------- responsive ---------- */
+@media (max-width:980px){
+  .goals{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr}
+}
+@media (max-width:768px){
+  body{font-size:16px}
+  .hero{padding:40px 0 32px}
+  .wrap{padding:0 16px}
+  .lede{font-size:16.5px}
+  .goals{margin-top:24px;gap:10px}
+  .stats{gap:12px 26px;margin-top:24px}
+  .stat b{font-size:25px}
+  .bar{padding:8px 0}
+  .search{flex:1 1 100%}
+  .search input{height:44px}
+  .ctrls{width:100%}
+  .meter{flex:1 1 100%}
+  .grid{gap:12px}
+  .card{padding:18px 18px 16px}
+  .word{font-size:24px}
+  .g-name{font-size:21px}
+  .group{margin-bottom:40px}
+  .drill-controls .btn{flex:1 1 44%;padding:0 12px}
+  .drill-controls .btn-primary{flex:1 1 100%}
+}
+@media (max-width:620px){
+  .grid{grid-template-columns:1fr}
+}
+@media (max-width:390px){
+  .wrap{padding:0 14px}
+  h1{font-size:34px}
+  .card{padding:16px 16px 14px;border-radius:20px}
+  .word{font-size:23px}
+  .zh{font-size:16px}
+  .ex{font-size:14.5px}
+  .toggle{padding:0 11px;font-size:14px}
+  .seg button{padding:0 11px;font-size:14px}
+}
+@media (min-width:981px){
+  .chips{flex-wrap:wrap;overflow-x:visible}
+}
+@media (min-width:1440px){
+  .wrap{max-width:1240px}
+  .grid{grid-template-columns:repeat(auto-fill,minmax(320px,1fr))}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">跳到单词列表</a>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">小学英语 · 单词卡词典</p>
+    <h1>基础词汇<span class="h1sub">（初级）</span></h1>
+    <p class="lede">406 个最常用的英语单词，按 15 个主题分好组。每个词都带音标、词性、尽量全的中文意思，下面还配一句例句和译文。<strong>点一下单词就能听到发音</strong>，想再听一遍，就再点一次。</p>
+    <ul class="goals">
+      <li><span class="goal-num">01</span><b>一组一组记</b><span>按主题看，每次记 10 个左右，比一次背 100 个更容易记住。</span></li>
+      <li><span class="goal-num">02</span><b>点词听发音</b><span>点单词听英式发音；读不准就打开「慢速」和「读两遍」。</span></li>
+      <li><span class="goal-num">03</span><b>看着进度走</b><span>点过的词会标上绿线，页面上方随时看得到自己走了多远。</span></li>
+    </ul>
+    <div class="stats">
+      <div class="stat"><b>406</b><span>个单词</span></div>
+      <div class="stat"><b>15</b><span>个主题</span></div>
+      <div class="stat"><b>406</b><span>句例句</span></div>
+      <div class="stat"><b>1</b><span>次点击就出声</span></div>
+    </div>
+  </div>
+</header>
+
+<div class="bar" id="bar">
+  <div class="wrap">
+    <div class="search">
+      <svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.6" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12.7 12.7 17 17" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      <input id="q" type="search" placeholder="搜单词或中文意思，比如 dog、狗" autocomplete="off" aria-label="搜索单词或中文意思">
+    </div>
+    <div class="ctrls">
+      <button class="toggle" id="slow" type="button" aria-pressed="false">慢速</button>
+      <button class="toggle" id="twice" type="button" aria-pressed="false">读两遍</button>
+      <button class="toggle" id="unread" type="button" aria-pressed="false">只看未读</button>
+      <div class="seg" role="group" aria-label="切换浏览方式">
+        <button type="button" id="viewCards" aria-pressed="true">词卡词典</button>
+        <button type="button" id="viewDrill" aria-pressed="false">逐卡跟读</button>
+      </div>
+    </div>
+    <div class="meter">
+      <span class="ptext" id="ptext">已点读 0 / 406</span>
+      <div class="track" id="track" role="progressbar" aria-label="已点读进度" aria-valuemin="0" aria-valuemax="406" aria-valuenow="0"><div class="fill" id="fill"></div></div>
+    </div>
+  </div>
+</div>
+
+<main id="main">
+  <div class="wrap">
+    <div class="chips" id="chips" role="group" aria-label="按主题筛选"></div>
+
+    <section id="cardsView">
+      <p class="filter-note" id="filterNote" hidden></p>
+      <div id="groups"></div>
+    </section>
+
+    <section id="drillView" hidden>
+      <div class="drill-wrap">
+        <div class="drill-head">
+          <span class="drill-group" id="drillGroup"></span>
+          <span class="drill-nav">
+            <button type="button" data-act="gprev">‹ 上一组</button>
+            <button type="button" data-act="gnext">下一组 ›</button>
+          </span>
+          <div class="drill-bar">
+            <span class="ptext" id="drillProgress"></span>
+            <div class="track" style="width:120px"><div class="fill" id="drillFill"></div></div>
+          </div>
+        </div>
+        <div class="drill-card" id="drillCard"></div>
+        <div class="drill-controls">
+          <button class="btn" type="button" data-act="prev">← 上一个</button>
+          <button class="btn btn-primary" type="button" data-act="play">🔈 听发音</button>
+          <button class="btn btn-primary" type="button" data-act="next">下一个 →</button>
+          <button class="btn" type="button" data-act="hide" aria-pressed="false">遮住中文</button>
+        </div>
+        <p class="drill-hint">点大单词或「听发音」再读一遍；键盘 ← → 换词，空格键听发音。</p>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h2>这一页的词从哪里来</h2>
+        <p>词表来自微信公众号文章<a class="src-link" href="https://mp.weixin.qq.com/s/ChMCkwryvmInSpyhxG_mjQ" target="_blank" rel="noopener noreferrer">《5000 常用英语单词分级整理》</a>里的「基础词汇（初级）」部分，共 406 个词。分组、顺序和原文的义项都按原样保留。</p>
+        <p>原文的每个义项都在；为了让意思更全，另外补上了常见义项、词性和一句例句。例句尽量挑小学生熟悉的场景。如果跟课本的说法不一样，以课本为准。</p>
+      </div>
+      <div>
+        <h2>发音怎么来的</h2>
+        <p>发音由浏览器自带的英语语音朗读，不需要联网下载声音文件，推荐用 Chrome 或 Edge 打开。如果点了没声音，先看看电脑音量，或者换一个浏览器。</p>
+        <p>点过的词会标上绿线，进度只在这次打开期间保留，关掉网页就从头开始。</p>
+        <h2 style="margin-top:20px">接下来可以这样练</h2>
+        <p>全部点过一遍后，切到「逐卡跟读」，打开「遮住中文」，只看英文说出意思；说不出来的，点一下听发音再放回列表里复习。</p>
+      </div>
+    </div>
+    <p class="foot-note">音标一般标注英式读音（英 /…/）；英美读音差别明显的，另标「美 /…/」。</p>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<noscript>这个页面需要打开 JavaScript 才能点读单词。</noscript>
+
+<script>
+var DATA = [{"id":"numbers","name":"数词","emoji":"🔢","intro":"从 1 数到 100，再认识「百、千、百万、十亿」和第 1、第 2……第 56。数词是小学生最先要用到的词，先把 1–12 和整十背熟，再记序数词。","words":[{"w":"one","ipa":"/wʌn/","pos":"num.","zh":["一","一个（人或物）"],"ex":"one apple","exz":"一个苹果"},{"w":"two","ipa":"/tuː/","pos":"num.","zh":["二","两个"],"ex":"two books","exz":"两本书"},{"w":"three","ipa":"/θriː/","pos":"num.","zh":["三","三个"],"ex":"three cats","exz":"三只猫"},{"w":"four","ipa":"/fɔː/","ipaus":"/fɔːr/","pos":"num.","zh":["四","四个"],"ex":"four seasons","exz":"四季"},{"w":"five","ipa":"/faɪv/","pos":"num.","zh":["五","五个"],"ex":"five fingers","exz":"五根手指"},{"w":"six","ipa":"/sɪks/","pos":"num.","zh":["六","六个"],"ex":"six pencils","exz":"六支铅笔"},{"w":"seven","ipa":"/ˈsevn/","pos":"num.","zh":["七","七个"],"ex":"seven days a week","exz":"一周七天"},{"w":"eight","ipa":"/eɪt/","pos":"num.","zh":["八","八个"],"ex":"eight o'clock","exz":"八点钟"},{"w":"nine","ipa":"/naɪn/","pos":"num.","zh":["九","九个"],"ex":"nine eggs","exz":"九个鸡蛋"},{"w":"ten","ipa":"/ten/","pos":"num.","zh":["十","十个"],"ex":"ten toes","exz":"十个脚趾"},{"w":"eleven","ipa":"/ɪˈlevn/","pos":"num.","zh":["十一","十一个"],"ex":"eleven players","exz":"十一名队员"},{"w":"twelve","ipa":"/twelv/","pos":"num.","zh":["十二","十二个"],"ex":"twelve months","exz":"十二个月"},{"w":"thirteen","ipa":"/ˌθɜːˈtiːn/","ipaus":"/ˌθɜːrˈtiːn/","pos":"num.","zh":["十三","十三个"],"ex":"thirteen years old","exz":"十三岁"},{"w":"fourteen","ipa":"/ˌfɔːˈtiːn/","ipaus":"/ˌfɔːrˈtiːn/","pos":"num.","zh":["十四","十四个"],"ex":"fourteen days","exz":"十四天"},{"w":"fifteen","ipa":"/ˌfɪfˈtiːn/","pos":"num.","zh":["十五","十五个"],"ex":"fifteen students","exz":"十五名学生"},{"w":"sixteen","ipa":"/ˌsɪksˈtiːn/","pos":"num.","zh":["十六","十六个"],"ex":"sixteen candles","exz":"十六支蜡烛"},{"w":"eighteen","ipa":"/ˌeɪˈtiːn/","pos":"num.","zh":["十八","十八个"],"ex":"eighteen yuan","exz":"十八元"},{"w":"nineteen","ipa":"/ˌnaɪnˈtiːn/","pos":"num.","zh":["十九","十九个"],"ex":"nineteen boys","exz":"十九个男孩"},{"w":"twenty","ipa":"/ˈtwenti/","pos":"num.","zh":["二十","二十个"],"ex":"twenty minutes","exz":"二十分钟"},{"w":"thirty","ipa":"/ˈθɜːti/","ipaus":"/ˈθɜːrti/","pos":"num.","zh":["三十","三十个"],"ex":"thirty days","exz":"三十天"},{"w":"forty","ipa":"/ˈfɔːti/","ipaus":"/ˈfɔːrti/","pos":"num.","zh":["四十","四十个"],"ex":"forty classes","exz":"四十节课"},{"w":"fifty","ipa":"/ˈfɪfti/","pos":"num.","zh":["五十","五十个"],"ex":"fifty cents","exz":"五十分"},{"w":"sixty","ipa":"/ˈsɪksti/","pos":"num.","zh":["六十","六十个"],"ex":"sixty seconds","exz":"六十秒"},{"w":"eighty","ipa":"/ˈeɪti/","pos":"num.","zh":["八十","八十个"],"ex":"eighty students","exz":"八十名学生"},{"w":"ninety","ipa":"/ˈnaɪnti/","pos":"num.","zh":["九十","九十个"],"ex":"ninety steps","exz":"九十级台阶"},{"w":"a hundred","ipa":"/ə ˈhʌndrəd/","pos":"num.","zh":["一百","许多，大量（口语）"],"ex":"a hundred trees","exz":"一百棵树"},{"w":"a thousand","ipa":"/ə ˈθaʊznd/","pos":"num.","zh":["一千","成千上万（a thousand and one 极多）"],"ex":"a thousand stars","exz":"一千颗星星"},{"w":"a million","ipa":"/ə ˈmɪljən/","pos":"num.","zh":["一百万","无数，极多"],"ex":"a million people","exz":"一百万人"},{"w":"a billion","ipa":"/ə ˈbɪljən/","pos":"num.","zh":["十亿（英式旧用法为万亿）"],"ex":"a billion dollars","exz":"十亿美元"},{"w":"first","ipa":"/fɜːst/","ipaus":"/fɜːrst/","pos":"序数词","zh":["第一（的）","最先的，最初的"],"ex":"the first day of school","exz":"开学第一天"},{"w":"second","ipa":"/ˈsekənd/","pos":"序数词","zh":["第二（的）","另一个，再一个（a second try 再试一次）"],"ex":"the second floor","exz":"二楼"},{"w":"third","ipa":"/θɜːd/","ipaus":"/θɜːrd/","pos":"序数词","zh":["第三（的）","三分之一的（a third）"],"ex":"the third question","exz":"第三个问题"},{"w":"fourth","ipa":"/fɔːθ/","ipaus":"/fɔːrθ/","pos":"序数词","zh":["第四（的）","四分之一（a fourth）"],"ex":"the fourth row","exz":"第四排"},{"w":"fifth","ipa":"/fɪfθ/","pos":"序数词","zh":["第五（的）","五分之一（a fifth）"],"ex":"the fifth page","exz":"第五页"},{"w":"eighth","ipa":"/eɪtθ/","pos":"序数词","zh":["第八（的）","八分之一（an eighth）"],"ex":"the eighth month","exz":"第八个月"},{"w":"ninth","ipa":"/naɪnθ/","pos":"序数词","zh":["第九（的）","九分之一（a ninth）"],"ex":"the ninth lesson","exz":"第九课"},{"w":"twelfth","ipa":"/twelfθ/","pos":"序数词","zh":["第十二（的）","十二分之一（a twelfth）"],"ex":"the twelfth night","exz":"第十二个夜晚"},{"w":"twentieth","ipa":"/ˈtwentiəθ/","pos":"序数词","zh":["第二十（的）","二十分之一（a twentieth）"],"ex":"the twentieth century","exz":"二十世纪"},{"w":"thirtieth","ipa":"/ˈθɜːtiəθ/","ipaus":"/ˈθɜːrtiəθ/","pos":"序数词","zh":["第三十（的）","三十分之一（a thirtieth）"],"ex":"her thirtieth birthday","exz":"她三十岁生日"},{"w":"fortieth","ipa":"/ˈfɔːtiəθ/","ipaus":"/ˈfɔːrtiəθ/","pos":"序数词","zh":["第四十（的）","四十分之一（a fortieth）"],"ex":"the fortieth page","exz":"第四十页"},{"w":"fiftieth","ipa":"/ˈfɪftiəθ/","pos":"序数词","zh":["第五十（的）","五十分之一（a fiftieth）"],"ex":"the fiftieth day","exz":"第五十天"},{"w":"sixtieth","ipa":"/ˈsɪkstiəθ/","pos":"序数词","zh":["第六十（的）","六十分之一（a sixtieth）"],"ex":"the sixtieth minute","exz":"第六十分钟"},{"w":"seventieth","ipa":"/ˈsevntiəθ/","pos":"序数词","zh":["第七十（的）","七十分之一（a seventieth）"],"ex":"his seventieth year","exz":"他七十岁那年"},{"w":"ninetieth","ipa":"/ˈnaɪntiəθ/","pos":"序数词","zh":["第九十（的）","九十分之一（a ninetieth）"],"ex":"the ninetieth step","exz":"第九十级台阶"},{"w":"fifty-sixth","ipa":"/ˌfɪfti ˈsɪksθ/","pos":"序数词","zh":["第五十六（的）","五十六分之一（a fifty-sixth）"],"ex":"the fifty-sixth word","exz":"第五十六个单词"}]},{"id":"body","name":"身体部位","emoji":"🦴","intro":"从头到脚认识自己的身体：骨骼、五官和内脏器官。先记眼睛、鼻子、嘴巴这些天天用得上的词，再慢慢认识 rib（肋骨）、spine（脊骨）这些「里面」的骨头。","words":[{"w":"collar bone","ipa":"/ˈkɒlə bəʊn/","ipaus":"/ˈkɑːlər boʊn/","pos":"名词","zh":["锁骨（连接肩和胸口的骨头）"],"ex":"He broke his collar bone when he fell.","exz":"他摔倒时摔断了锁骨。"},{"w":"rib","ipa":"/rɪb/","pos":"名词","zh":["肋骨","排骨（做菜用的肋条肉）"],"ex":"I can feel my ribs with my hand.","exz":"我用手能摸到自己的肋骨。"},{"w":"hip","ipa":"/hɪp/","pos":"名词","zh":["臀部","髋部（腰以下、大腿以上的部位）"],"ex":"She put her hands on her hips.","exz":"她双手叉腰。"},{"w":"thigh","ipa":"/θaɪ/","pos":"名词","zh":["大腿"],"ex":"The ball hit my thigh.","exz":"球打在我的大腿上。"},{"w":"ankle","ipa":"/ˈæŋkl/","pos":"名词","zh":["踝关节，脚脖子"],"ex":"I hurt my ankle when I ran.","exz":"我跑步时扭伤了脚踝。"},{"w":"neck","ipa":"/nek/","pos":"名词","zh":["颈，脖子","（瓶子的）颈部"],"ex":"Giraffes have very long necks.","exz":"长颈鹿有很长的脖子。"},{"w":"shoulder","ipa":"/ˈʃəʊldə(r)/","ipaus":"/ˈʃoʊldər/","pos":"名词 / 动词","zh":["肩膀","承担，扛起（责任）"],"ex":"Put your bag on your shoulder.","exz":"把书包背在肩上。"},{"w":"chest","ipa":"/tʃest/","pos":"名词","zh":["胸腔，胸部","箱子，柜子（a chest of drawers 五斗柜）"],"ex":"He has a pain in his chest.","exz":"他胸口疼。"},{"w":"elbow","ipa":"/ˈelbəʊ/","ipaus":"/ˈelboʊ/","pos":"名词 / 动词","zh":["肘，胳膊肘","用肘推"],"ex":"Don't put your elbows on the table.","exz":"别把胳膊肘放在桌子上。"},{"w":"spine","ipa":"/spaɪn/","pos":"名词","zh":["脊骨，脊柱","（书的）书脊"],"ex":"Keep your spine straight when you sit.","exz":"坐着的时候要保持脊背挺直。"},{"w":"knee","ipa":"/niː/","pos":"名词","zh":["膝盖"],"ex":"My knees hurt after the long run.","exz":"跑了很远以后我的膝盖疼。"},{"w":"heel","ipa":"/hiːl/","pos":"名词","zh":["脚后跟","鞋跟"],"ex":"My new shoes hurt my heel.","exz":"新鞋磨我的脚后跟。"},{"w":"toe","ipa":"/təʊ/","ipaus":"/toʊ/","pos":"名词","zh":["脚趾","（鞋、袜的）脚尖部分"],"ex":"I have ten toes.","exz":"我有十个脚趾。"},{"w":"teeth","ipa":"/tiːθ/","pos":"名词","zh":["牙齿（tooth 的复数）"],"ex":"Brush your teeth twice a day.","exz":"每天刷两次牙。"},{"w":"eye","ipa":"/aɪ/","pos":"名词","zh":["眼睛","眼光，眼力","针眼，孔"],"ex":"Close your eyes and count to ten.","exz":"闭上眼睛数到十。"},{"w":"eyelid","ipa":"/ˈaɪlɪd/","pos":"名词","zh":["眼睑，眼皮"],"ex":"He closed his eyelids and fell asleep.","exz":"他合上眼皮睡着了。"},{"w":"eyelashes","ipa":"/ˈaɪlæʃɪz/","pos":"名词","zh":["眼睫毛（eyelash 的复数）"],"ex":"She has long eyelashes.","exz":"她长着长长的睫毛。"},{"w":"eyebrow","ipa":"/ˈaɪbraʊ/","pos":"名词","zh":["眉毛"],"ex":"He raised his eyebrows in surprise.","exz":"他惊讶地扬起了眉毛。"},{"w":"mouth","ipa":"/maʊθ/","pos":"名词","zh":["嘴","（河的）入海口","（瓶、洞的）口"],"ex":"Open your mouth, please.","exz":"请张开嘴。"},{"w":"cheek","ipa":"/tʃiːk/","pos":"名词","zh":["脸颊","厚脸皮（口语）"],"ex":"Her cheeks turned red.","exz":"她的脸红了。"},{"w":"tongue","ipa":"/tʌŋ/","pos":"名词","zh":["舌头","语言（mother tongue 母语）","（鞋的）鞋舌"],"ex":"The hot soup burnt my tongue.","exz":"热汤把我的舌头烫了。"},{"w":"waist","ipa":"/weɪst/","pos":"名词","zh":["腰，腰部","（衣服的）腰身"],"ex":"He tied a belt around his waist.","exz":"他在腰上系了一条腰带。"},{"w":"finger","ipa":"/ˈfɪŋɡə(r)/","ipaus":"/ˈfɪŋɡər/","pos":"名词","zh":["手指","（手套的）指头"],"ex":"Point to the map with your finger.","exz":"用手指一指地图。"},{"w":"thumb","ipa":"/θʌm/","pos":"名词","zh":["大拇指","（手套的）拇指部分"],"ex":"Babies like to suck their thumbs.","exz":"婴儿喜欢吮大拇指。"},{"w":"belly","ipa":"/ˈbeli/","pos":"名词","zh":["肚子，腹部","（动物的）肚子"],"ex":"The dog lay on its belly.","exz":"狗趴在地上，肚子贴着地面。"},{"w":"skull","ipa":"/skʌl/","pos":"名词","zh":["头骨，颅骨"],"ex":"The skull protects the brain.","exz":"头骨保护着大脑。"},{"w":"brain","ipa":"/breɪn/","pos":"名词","zh":["脑，大脑","头脑，智力","聪明人（口语）"],"ex":"Reading is good exercise for the brain.","exz":"阅读对大脑是很好的锻炼。"},{"w":"heart","ipa":"/hɑːt/","ipaus":"/hɑːrt/","pos":"名词","zh":["心，心脏","内心，感情","中心（the heart of the city 市中心）"],"ex":"My heart beats fast when I run.","exz":"我跑步的时候心跳得很快。"},{"w":"liver","ipa":"/ˈlɪvə(r)/","pos":"名词","zh":["肝，肝脏","（可食用的）肝（猪肝、鸡肝）"],"ex":"The liver cleans the blood.","exz":"肝脏净化血液。"},{"w":"kidney","ipa":"/ˈkɪdni/","pos":"名词","zh":["肾，肾脏","（可食用的）腰子"],"ex":"We each have two kidneys.","exz":"我们每个人都有两个肾。"},{"w":"lung","ipa":"/lʌŋ/","pos":"名词","zh":["肺"],"ex":"Smoke is bad for your lungs.","exz":"烟对你的肺有害。"},{"w":"throat","ipa":"/θrəʊt/","ipaus":"/θroʊt/","pos":"名词","zh":["喉，喉咙","嗓子（a sore throat 嗓子疼）"],"ex":"I have a sore throat today.","exz":"我今天嗓子疼。"}]},{"id":"position","name":"方位与介词","emoji":"🧭","intro":"「东西在哪里」全靠这几个小词：in、on、under、behind……还有东南西北和左右。把它们和身边的桌、椅、书包一起说，很快就记住了。","words":[{"w":"in","ipa":"/ɪn/","pos":"介词 / 副词","zh":["在……里（in the box 在盒子里）","在……时候（in May 在五月；in 2026 在 2026 年）","用（语言、材料）in English 用英语","穿着（in red 穿红衣）","副词：在里面，进入"],"ex":"The cat is in the box.","exz":"猫在盒子里。"},{"w":"on","ipa":"/ɒn/","ipaus":"/ɑːn/","pos":"介词 / 副词","zh":["在……上（表示接触：on the desk 在桌上）","在……时候（具体某天：on Monday 在星期一）","关于（a book on animals 一本关于动物的书）","副词：继续，开着（turn on 打开）"],"ex":"The book is on the desk.","exz":"书在桌子上。"},{"w":"under","ipa":"/ˈʌndə(r)/","pos":"介词 / 副词","zh":["在……下面（under the chair 在椅子下）","少于，不到（under ten 不到十岁）","在……带领（统治）下"],"ex":"The ball is under the chair.","exz":"球在椅子下面。"},{"w":"behind","ipa":"/bɪˈhaɪnd/","pos":"介词 / 副词","zh":["在……后边（behind the door 在门后）","落后于（behind the others 落在别人后面）","副词：在后面"],"ex":"The garden is behind the house.","exz":"花园在房子后面。"},{"w":"next to","ipa":"/nekst tə/","pos":"短语（介词）","zh":["与……相邻，在……旁边（next to the window 在窗边）","紧挨着"],"ex":"Sit next to me, please.","exz":"请坐在我旁边。"},{"w":"over","ipa":"/ˈəʊvə(r)/","ipaus":"/ˈoʊvər/","pos":"介词 / 副词","zh":["在……上面（不接触：a lamp over the table 桌子上方的灯）","越过（fly over the roof 飞过屋顶）","超过（over ten 超过十个）","副词：结束（Class is over. 下课了）"],"ex":"A bird flew over the roof.","exz":"一只鸟飞过屋顶。"},{"w":"in front of","ipa":"/ɪn frʌnt əv/","pos":"短语（介词）","zh":["在……前面（in front of the school 在学校前面）","当着……的面"],"ex":"The bus stops in front of the school.","exz":"公交车停在学校前面。"},{"w":"south","ipa":"/saʊθ/","pos":"名词 / 形容词 / 副词","zh":["南，南方","南方的，南部的","向南（fly south 向南飞）"],"ex":"Birds fly south in winter.","exz":"冬天鸟儿飞向南方。"},{"w":"north","ipa":"/nɔːθ/","ipaus":"/nɔːrθ/","pos":"名词 / 形容词 / 副词","zh":["北，北方","北方的，北部的","向北"],"ex":"The cold wind comes from the north.","exz":"冷风从北方吹来。"},{"w":"east","ipa":"/iːst/","pos":"名词 / 形容词 / 副词","zh":["东，东方","东方的，东部的","向东"],"ex":"The sun rises in the east.","exz":"太阳从东方升起。"},{"w":"west","ipa":"/west/","pos":"名词 / 形容词 / 副词","zh":["西，西方","西边的，西部的","向西"],"ex":"The sun sets in the west.","exz":"太阳在西方落下。"},{"w":"left","ipa":"/left/","pos":"名词 / 形容词 / 副词","zh":["左边，左面","左边的","向左（turn left 向左转）","（leave 的过去式）离开，留下"],"ex":"Turn left at the corner.","exz":"在拐角处向左转。"},{"w":"right","ipa":"/raɪt/","pos":"名词 / 形容词 / 副词","zh":["右边，右面","右边的","向右（turn right 向右转）","正确的，对的","权利（名词）"],"ex":"Raise your right hand.","exz":"举起你的右手。"}]},{"id":"week-season","name":"星期与季节","emoji":"📅","intro":"一周七天和一年四季。星期名首字母要大写，说「在星期一」用 on Monday。记忆小窍门：Wednesday 里的 d 不发音，读 /ˈwenzdeɪ/。","words":[{"w":"Monday","ipa":"/ˈmʌndeɪ/","pos":"名词","zh":["星期一","（口语）一周的开始"],"ex":"We have music on Monday.","exz":"我们星期一有音乐课。"},{"w":"Tuesday","ipa":"/ˈtjuːzdeɪ/","ipaus":"/ˈtuːzdeɪ/","pos":"名词","zh":["星期二"],"ex":"Tuesday comes after Monday.","exz":"星期二在星期一之后。"},{"w":"Wednesday","ipa":"/ˈwenzdeɪ/","pos":"名词","zh":["星期三（注意 d 不发音）"],"ex":"I have art class on Wednesday.","exz":"我星期三有美术课。"},{"w":"Thursday","ipa":"/ˈθɜːzdeɪ/","ipaus":"/ˈθɜːrzdeɪ/","pos":"名词","zh":["星期四"],"ex":"We play football on Thursday.","exz":"我们星期四踢足球。"},{"w":"Friday","ipa":"/ˈfraɪdeɪ/","pos":"名词","zh":["星期五"],"ex":"Friday is the last school day of the week.","exz":"星期五是一周里最后一个上学的日子。"},{"w":"Saturday","ipa":"/ˈsætədeɪ/","ipaus":"/ˈsætərdeɪ/","pos":"名词","zh":["星期六"],"ex":"I go swimming on Saturday.","exz":"我星期六去游泳。"},{"w":"Sunday","ipa":"/ˈsʌndeɪ/","pos":"名词","zh":["星期天，星期日"],"ex":"Sunday is a day for rest.","exz":"星期天是休息的日子。"},{"w":"weekend","ipa":"/ˌwiːkˈend/","pos":"名词","zh":["周末（星期六和星期日）","（引申）周末的休息时间"],"ex":"What do you do at the weekend?","exz":"你周末做什么？"},{"w":"spring","ipa":"/sprɪŋ/","pos":"名词","zh":["春天","泉水（a hot spring 温泉）","弹簧","（动词）跳，弹起"],"ex":"Flowers open in spring.","exz":"春天花儿开放。"},{"w":"summer","ipa":"/ˈsʌmə(r)/","pos":"名词","zh":["夏天","（形容词）夏季的（summer holiday 暑假）"],"ex":"We swim in the river in summer.","exz":"夏天我们在河里游泳。"},{"w":"fall / autumn","ipa":"/fɔːl/","alt":"autumn 读 /ˈɔːtəm/","pos":"名词","zh":["秋天（美式常用 fall，英式常用 autumn）","（动词 fall）落下，跌倒"],"ex":"Leaves turn yellow in fall.","exz":"秋天树叶变黄。"},{"w":"winter","ipa":"/ˈwɪntə(r)/","pos":"名词","zh":["冬天","（形容词）冬季的（winter holiday 寒假）"],"ex":"It often snows in winter.","exz":"冬天常下雪。"}]},{"id":"weather","name":"气象","emoji":"🌦️","intro":"今天天气怎么样？cold 冷、hot 热、cool 凉爽，还有 sunny、rainy、windy、cloudy、snowy 五个「-y 结尾」的天气词——它们都是「有……的天气」的意思。","words":[{"w":"cold","ipa":"/kəʊld/","ipaus":"/koʊld/","pos":"形容词 / 名词","zh":["寒冷的，冷的","冷淡的（a cold look 冷冷的一眼）","（名词）感冒（catch a cold 感冒）","冷，寒冷"],"ex":"It is cold in winter.","exz":"冬天很冷。"},{"w":"warm","ipa":"/wɔːm/","ipaus":"/wɔːrm/","pos":"形容词 / 动词","zh":["温暖的，暖和的","热情的，热心的（a warm welcome 热烈欢迎）","（动词）使暖和，加热（warm up 热身）"],"ex":"The spring days are warm.","exz":"春天的日子很暖和。"},{"w":"cool","ipa":"/kuːl/","pos":"形容词 / 动词","zh":["凉爽的，凉快的","冷静的（keep cool 保持冷静）","（口语）酷的，帅的","（动词）使变凉"],"ex":"It is cool in the evening.","exz":"傍晚很凉爽。"},{"w":"snowy","ipa":"/ˈsnəʊi/","ipaus":"/ˈsnoʊi/","pos":"形容词","zh":["下雪的，多雪的","被雪覆盖的（snowy mountains 雪山）"],"ex":"It is snowy today; let's make a snowman.","exz":"今天下雪，我们去堆雪人吧。"},{"w":"sunny","ipa":"/ˈsʌni/","pos":"形容词","zh":["晴朗的，阳光充足的","快活的，开朗的（a sunny smile 阳光般的笑容）"],"ex":"It is a sunny day.","exz":"这是个晴天。"},{"w":"hot","ipa":"/hɒt/","ipaus":"/hɑːt/","pos":"形容词","zh":["炎热的，热的","辣的（hot food 辣的食物）","热门的（hot news 热门消息）"],"ex":"It is hot in summer.","exz":"夏天很热。"},{"w":"rainy","ipa":"/ˈreɪni/","pos":"形容词","zh":["下雨的，多雨的（a rainy day 下雨天）","（引申）阴雨的，令人郁闷的"],"ex":"Take an umbrella on a rainy day.","exz":"下雨天要带伞。"},{"w":"windy","ipa":"/ˈwɪndi/","pos":"形容词","zh":["有风的，刮风的","（道路）弯曲的","（口语）夸夸其谈的"],"ex":"It is windy, so we can fly a kite.","exz":"今天有风，我们可以放风筝。"},{"w":"cloudy","ipa":"/ˈklaʊdi/","pos":"形容词","zh":["多云的，阴天的","浑浊的，不清的（cloudy water 浑浊的水）","（想法）模糊的"],"ex":"The sky is cloudy today.","exz":"今天天空多云。"},{"w":"weather report","ipa":"/ˈweðə rɪˈpɔːt/","ipaus":"/ˈweðər rɪˈpɔːrt/","pos":"名词","zh":["天气预报","天气报告"],"ex":"I watch the weather report every evening.","exz":"我每天晚上看天气预报。"}]},{"id":"school-things","name":"学习用品与杂物","emoji":"✏️","intro":"教室里、家里最常见的东西都在这组：文具、家具、生活小物。这一组词最多，可以分成「教室里」「家里」「其他」三小类来记，一天记十个。","words":[{"w":"pen","ipa":"/pen/","pos":"名词 / 动词","zh":["钢笔，笔","（牲畜的）圈，栏","（动词）写，书写"],"ex":"May I use your pen?","exz":"我可以用一下你的钢笔吗？"},{"w":"pencil","ipa":"/ˈpensl/","pos":"名词","zh":["铅笔","（pencil case 铅笔盒）"],"ex":"Draw a line with your pencil.","exz":"用铅笔画一条线。"},{"w":"desk","ipa":"/desk/","pos":"名词","zh":["课桌，书桌","（酒店的）服务台，（报社的）编辑部"],"ex":"My books are on the desk.","exz":"我的书在课桌上。"},{"w":"chair","ipa":"/tʃeə(r)/","ipaus":"/tʃer/","pos":"名词 / 动词","zh":["椅子","（会议的）主席，主持（动词）"],"ex":"Please sit on the chair.","exz":"请坐在椅子上。"},{"w":"bed","ipa":"/bed/","pos":"名词","zh":["床","（河、海的）床（river bed 河床）","花坛","（go to bed 上床睡觉）"],"ex":"I go to bed at nine.","exz":"我九点上床睡觉。"},{"w":"computer","ipa":"/kəmˈpjuːtə(r)/","pos":"名词","zh":["计算机，电脑","（computer game 电脑游戏）"],"ex":"I do my homework on the computer.","exz":"我用电脑做作业。"},{"w":"board","ipa":"/bɔːd/","ipaus":"/bɔːrd/","pos":"名词 / 动词","zh":["写字板，黑板","木板","（动词）上（车、船、飞机）；登机"],"ex":"The teacher writes on the board.","exz":"老师在黑板上写字。"},{"w":"fan","ipa":"/fæn/","pos":"名词","zh":["风扇，电扇","扇子","（口语）迷，粉丝（a football fan 球迷）"],"ex":"Turn on the fan; it is hot.","exz":"打开风扇吧，太热了。"},{"w":"light","ipa":"/laɪt/","pos":"名词 / 形容词 / 动词","zh":["灯，灯光","光，光线","（形容词）轻的；浅色的","（动词）点燃，照亮"],"ex":"Please turn on the light.","exz":"请打开灯。"},{"w":"teacher's desk","ipa":"/ˈtiːtʃəz desk/","ipaus":"/ˈtiːtʃərz desk/","pos":"名词","zh":["讲台，教师的讲桌"],"ex":"The teacher's desk is in front of the class.","exz":"讲台在全班前面。"},{"w":"picture","ipa":"/ˈpɪktʃə(r)/","pos":"名词 / 动词","zh":["图画，图片","照片","（动词）想象，描绘（picture this 想象一下）"],"ex":"She is drawing a picture of a cat.","exz":"她正在画一只猫。"},{"w":"wall","ipa":"/wɔːl/","pos":"名词","zh":["墙壁","围墙，城墙","（the Great Wall 长城）"],"ex":"There is a map on the wall.","exz":"墙上有一幅地图。"},{"w":"floor","ipa":"/flɔː(r)/","pos":"名词","zh":["地板，地面","楼层（the first floor 英：二楼／美：一楼）"],"ex":"Don't sit on the floor.","exz":"不要坐在地板上。"},{"w":"curtain","ipa":"/ˈkɜːtn/","ipaus":"/ˈkɜːrtn/","pos":"名词","zh":["窗帘","（舞台的）幕布","（动词）给……装上窗帘"],"ex":"Please draw the curtain.","exz":"请把窗帘拉上。"},{"w":"trash bin","ipa":"/træʃ bɪn/","pos":"名词","zh":["垃圾箱（英式常说 rubbish bin 或 dustbin）"],"ex":"Throw the paper into the trash bin.","exz":"把纸扔进垃圾箱。"},{"w":"closet","ipa":"/ˈklɒzɪt/","ipaus":"/ˈklɑːzɪt/","pos":"名词","zh":["壁橱，衣柜","（美式）储藏室"],"ex":"My coat is in the closet.","exz":"我的外套在衣柜里。"},{"w":"mirror","ipa":"/ˈmɪrə(r)/","pos":"名词 / 动词","zh":["镜子","（动词）反映，映出"],"ex":"She looked at herself in the mirror.","exz":"她照了照镜子。"},{"w":"English book","ipa":"/ˈɪŋɡlɪʃ bʊk/","pos":"名词","zh":["英语书，英语课本"],"ex":"Open your English book to page ten.","exz":"把英语书翻到第十页。"},{"w":"end table","ipa":"/end ˈteɪbl/","pos":"名词","zh":["床头柜","（沙发旁的）小茶几"],"ex":"Put the lamp on the end table.","exz":"把台灯放在床头柜上。"},{"w":"window","ipa":"/ˈwɪndəʊ/","ipaus":"/ˈwɪndoʊ/","pos":"名词","zh":["窗户","（计算机的）窗口","（商店的）橱窗"],"ex":"Open the window, please.","exz":"请打开窗户。"},{"w":"door","ipa":"/dɔː(r)/","pos":"名词","zh":["门","（车、柜子的）门","（引申）入口，通道"],"ex":"Close the door quietly.","exz":"轻轻地关上门。"},{"w":"present","ipa":"/ˈpreznt/","pos":"名词 / 形容词 / 动词","zh":["礼物（名词）","现在，目前（at present 目前）","（形容词）出席的，在场的","读 /prɪˈzent/（动词）赠送，呈现"],"ex":"This present is for you.","exz":"这个礼物是送给你的。"},{"w":"spoon","ipa":"/spuːn/","pos":"名词","zh":["勺子，调羹","一勺的量（a spoon of sugar 一勺糖）"],"ex":"Eat the soup with a spoon.","exz":"用勺子喝汤。"},{"w":"nest","ipa":"/nest/","pos":"名词 / 动词","zh":["鸟窝，巢","（动物的）窝；（引申）安乐窝","（动词）筑巢"],"ex":"There are three eggs in the nest.","exz":"鸟窝里有三个蛋。"},{"w":"walkman","ipa":"/ˈwɔːkmən/","pos":"名词","zh":["随身听（便携式磁带播放机，旧时的说法）"],"ex":"My father listened to music on his walkman.","exz":"我爸爸用随身听听音乐。"},{"w":"chopsticks","ipa":"/ˈtʃɒpstɪks/","ipaus":"/ˈtʃɑːpstɪks/","pos":"名词","zh":["筷子（复数，通常用 a pair of chopsticks）"],"ex":"Can you use chopsticks?","exz":"你会用筷子吗？"},{"w":"hole","ipa":"/həʊl/","ipaus":"/hoʊl/","pos":"名词","zh":["洞，孔","坑","（引申）困境（in a hole 陷入困境）"],"ex":"There is a hole in my sock.","exz":"我的袜子上有个洞。"},{"w":"lamp","ipa":"/læmp/","pos":"名词","zh":["灯，台灯","（街上的）路灯"],"ex":"Turn on the lamp; it is dark.","exz":"打开台灯吧，天黑了。"},{"w":"pot","ipa":"/pɒt/","ipaus":"/pɑːt/","pos":"名词","zh":["锅，壶","花盆（a flower pot）","罐，坛"],"ex":"The soup is in the pot.","exz":"汤在锅里。"},{"w":"tube","ipa":"/tjuːb/","ipaus":"/tuːb/","pos":"名词","zh":["管子，软管（a tube of toothpaste 一管牙膏）","（英式）地铁（the tube）"],"ex":"We need a tube of toothpaste.","exz":"我们需要一管牙膏。"},{"w":"phone","ipa":"/fəʊn/","ipaus":"/foʊn/","pos":"名词 / 动词","zh":["电话，电话机","手机（mobile phone）","（动词）打电话（phone sb.）"],"ex":"My phone is on the table.","exz":"我的手机在桌子上。"},{"w":"gift","ipa":"/ɡɪft/","pos":"名词","zh":["礼物，赠品","天赋，才能（a gift for music 音乐天赋）"],"ex":"She gave me a birthday gift.","exz":"她送给我一件生日礼物。"},{"w":"toothbrush","ipa":"/ˈtuːθbrʌʃ/","pos":"名词","zh":["牙刷"],"ex":"I need a new toothbrush.","exz":"我需要一把新牙刷。"},{"w":"sofa","ipa":"/ˈsəʊfə/","ipaus":"/ˈsoʊfə/","pos":"名词","zh":["沙发"],"ex":"The cat is sleeping on the sofa.","exz":"猫在沙发上睡觉。"},{"w":"toy","ipa":"/tɔɪ/","pos":"名词 / 形容词","zh":["玩具","（形容词）玩具的（a toy car 玩具汽车）"],"ex":"This toy is for my little brother.","exz":"这个玩具是给我弟弟的。"},{"w":"menu","ipa":"/ˈmenjuː/","pos":"名词","zh":["菜单","（电脑屏幕上的）菜单"],"ex":"May I see the menu, please?","exz":"请给我看看菜单好吗？"},{"w":"shelf","ipa":"/ʃelf/","pos":"名词","zh":["书架，搁板（复数 shelves /ʃelvz/）","（引申）架子"],"ex":"The books are on the shelf.","exz":"书在书架上。"},{"w":"doll","ipa":"/dɒl/","ipaus":"/dɑːl/","pos":"名词","zh":["洋娃娃，玩偶"],"ex":"She plays with her doll every day.","exz":"她每天和洋娃娃玩。"},{"w":"e-card","ipa":"/ˈiː kɑːd/","ipaus":"/ˈiː kɑːrd/","pos":"名词","zh":["电子卡片（网上发送的贺卡）"],"ex":"I sent an e-card to my teacher.","exz":"我给老师发了一张电子贺卡。"},{"w":"fridge","ipa":"/frɪdʒ/","pos":"名词","zh":["冰箱（refrigerator 的简称）"],"ex":"The milk is in the fridge.","exz":"牛奶在冰箱里。"},{"w":"ball","ipa":"/bɔːl/","pos":"名词","zh":["球","（球的）一团（a ball of string 一团线）","舞会"],"ex":"Let's play with the ball.","exz":"我们一起玩球吧。"},{"w":"e-mail","ipa":"/ˈiː meɪl/","pos":"名词 / 动词","zh":["电子邮件","（动词）发电子邮件（e-mail sb.）"],"ex":"I got an e-mail from my friend.","exz":"我收到了朋友的电子邮件。"},{"w":"table","ipa":"/ˈteɪbl/","pos":"名词","zh":["桌子","表格（a table of numbers 数字表）","（at table 在吃饭）"],"ex":"Put the plate on the table.","exz":"把盘子放在桌子上。"},{"w":"balloon","ipa":"/bəˈluːn/","pos":"名词","zh":["气球","（热）气球"],"ex":"The red balloon flew away.","exz":"红气球飞走了。"},{"w":"traffic light","ipa":"/ˈtræfɪk laɪt/","pos":"名词","zh":["交通灯，红绿灯"],"ex":"Stop when the traffic light is red.","exz":"红灯亮时要停下来。"},{"w":"TV","ipa":"/ˌtiː ˈviː/","pos":"名词","zh":["电视，电视机（television 的缩写）","电视节目"],"ex":"Don't watch TV for too long.","exz":"不要看电视看太久。"},{"w":"kite","ipa":"/kaɪt/","pos":"名词","zh":["风筝","（动词）放风筝（fly a kite）"],"ex":"We fly a kite in spring.","exz":"我们在春天放风筝。"},{"w":"money","ipa":"/ˈmʌni/","pos":"名词","zh":["钱，货币","财富","（不可数名词，没有复数）"],"ex":"I save my money in a piggy bank.","exz":"我把钱存进小猪存钱罐。"},{"w":"air-conditioner","ipa":"/ˈeə kəndɪʃənə(r)/","ipaus":"/ˈer kəndɪʃənər/","pos":"名词","zh":["空调，空气调节器"],"ex":"Please turn on the air-conditioner.","exz":"请打开空调。"},{"w":"jigsaw puzzle","ipa":"/ˈdʒɪɡsɔː ˈpʌzl/","ipaus":"/ˈdʒɪɡsɔː ˈpʌzl/","pos":"名词","zh":["拼图游戏，拼板玩具"],"ex":"We finished the jigsaw puzzle together.","exz":"我们一起拼完了这幅拼图。"},{"w":"medicine","ipa":"/ˈmedsn/","pos":"名词","zh":["药，药物","医学，医术"],"ex":"Take the medicine after dinner.","exz":"晚饭后吃药。"},{"w":"key","ipa":"/kiː/","pos":"名词 / 形容词","zh":["钥匙","（问题的）答案，关键（the key to the question）","（形容词）关键的，重要的","（琴、键盘的）键"],"ex":"I lost the key to my bike.","exz":"我丢了我的自行车钥匙。"},{"w":"box","ipa":"/bɒks/","ipaus":"/bɑːks/","pos":"名词 / 动词","zh":["盒子，箱子","（一）盒（a box of pencils 一盒铅笔）","（动词）拳击"],"ex":"The toys are in the box.","exz":"玩具在盒子里。"},{"w":"lock","ipa":"/lɒk/","ipaus":"/lɑːk/","pos":"名词 / 动词","zh":["锁","（动词）锁上（lock the door 锁门）"],"ex":"Don't forget to lock the door.","exz":"别忘了锁门。"},{"w":"umbrella","ipa":"/ʌmˈbrelə/","pos":"名词","zh":["伞，雨伞","（引申）保护伞"],"ex":"Take an umbrella; it is rainy.","exz":"带把伞，今天下雨。"},{"w":"photo","ipa":"/ˈfəʊtəʊ/","ipaus":"/ˈfoʊtoʊ/","pos":"名词","zh":["照片（photograph 的简称，复数 photos）","（动词）拍照（take a photo）"],"ex":"This is a photo of my family.","exz":"这是我家的照片。"},{"w":"zipper","ipa":"/ˈzɪpə(r)/","pos":"名词","zh":["拉链（英式也常说 zip）"],"ex":"The zipper on my bag is broken.","exz":"我书包上的拉链坏了。"},{"w":"chart","ipa":"/tʃɑːt/","ipaus":"/tʃɑːrt/","pos":"名词","zh":["图表，图（a weather chart 天气图）","（音乐）排行榜"],"ex":"Look at the chart on the wall.","exz":"看墙上的图表。"},{"w":"violin","ipa":"/ˌvaɪəˈlɪn/","pos":"名词","zh":["小提琴（play the violin 拉小提琴）"],"ex":"She plays the violin very well.","exz":"她小提琴拉得很好。"},{"w":"plate","ipa":"/pleɪt/","pos":"名词","zh":["盘子，碟子","（一）盘（a plate of rice 一盘米饭）","（汽车）车牌"],"ex":"Wash your plate after lunch.","exz":"午饭后把盘子洗干净。"},{"w":"yo-yo","ipa":"/ˈjəʊjəʊ/","ipaus":"/ˈjoʊjoʊ/","pos":"名词","zh":["溜溜球，悠悠球"],"ex":"He can play with a yo-yo.","exz":"他会玩溜溜球。"},{"w":"knife","ipa":"/naɪf/","pos":"名词","zh":["刀，小刀（复数 knives /naɪvz/）","（餐具）餐刀"],"ex":"Be careful with the knife.","exz":"用刀要小心。"},{"w":"fork","ipa":"/fɔːk/","ipaus":"/fɔːrk/","pos":"名词","zh":["叉子，餐叉","（路的）分岔（a fork in the road）"],"ex":"Eat the cake with a fork.","exz":"用叉子吃蛋糕。"},{"w":"football / soccer","ipa":"/ˈfʊtbɔːl/","alt":"soccer 读 /ˈsɒkə(r)/（美式 /ˈsɑːkər/）","pos":"名词","zh":["足球（英式用 football，美式用 soccer）","足球运动"],"ex":"We play football after school.","exz":"我们放学后踢足球。"}]},{"id":"transport","name":"交通工具","emoji":"🚌","intro":"从自行车到飞机，出门要用的词都在这。注意搭车用 by：by bike、by bus、by train，中间不加 a 或 the。","words":[{"w":"bike","ipa":"/baɪk/","pos":"名词 / 动词","zh":["自行车（bicycle 的简称）","（动词）骑自行车（go biking 骑车出游）"],"ex":"I ride my bike to school.","exz":"我骑自行车上学。"},{"w":"bus","ipa":"/bʌs/","pos":"名词","zh":["公共汽车，公交车","（计算机）总线（较专业）"],"ex":"We take the bus to the park.","exz":"我们坐公交车去公园。"},{"w":"train","ipa":"/treɪn/","pos":"名词 / 动词","zh":["火车，列车","（一）串，列（a train of cars 一列车队）","（动词）训练，培训"],"ex":"The train is coming into the station.","exz":"火车正在进站。"},{"w":"ship","ipa":"/ʃɪp/","pos":"名词 / 动词","zh":["船，轮船（常指大海轮）","（动词）用船运送，发货"],"ex":"The ship sails on the blue sea.","exz":"轮船在蓝色的大海上航行。"},{"w":"yacht","ipa":"/jɒt/","ipaus":"/jɑːt/","pos":"名词","zh":["快艇，游艇"],"ex":"They sailed a white yacht.","exz":"他们驾驶一艘白色快艇。"},{"w":"car","ipa":"/kɑː(r)/","pos":"名词","zh":["汽车，小轿车","（火车的）车厢（dining car 餐车）"],"ex":"My father drives a car to work.","exz":"我爸爸开车上班。"},{"w":"taxi","ipa":"/ˈtæksi/","pos":"名词","zh":["出租车，的士","（动词）飞机滑行"],"ex":"Let's take a taxi to the station.","exz":"我们打的去车站吧。"},{"w":"jeep","ipa":"/dʒiːp/","pos":"名词","zh":["吉普车（能走山路的越野小汽车）"],"ex":"The jeep can go on rough roads.","exz":"吉普车能走崎岖的山路。"},{"w":"van","ipa":"/væn/","pos":"名词","zh":["小货车","面包车，小型客车（a moving van 搬家车）"],"ex":"A van brought the boxes to our house.","exz":"一辆小货车把箱子运到了我家。"},{"w":"plane / airplane","ipa":"/pleɪn/","alt":"airplane 读 /ˈeəpleɪn/（美式 /ˈerpleɪn/）","pos":"名词","zh":["飞机（plane 是 airplane 的简称，英式也说 aeroplane）","（by plane 乘飞机）"],"ex":"The plane flies high in the sky.","exz":"飞机在天上高高地飞。"},{"w":"subway / underground","ipa":"/ˈsʌbweɪ/","alt":"underground 读 /ˈʌndəɡraʊnd/（英式；口语也说 the tube）","pos":"名词","zh":["地铁（美式 subway，英式 underground）","（美式）地下人行通道"],"ex":"We go to the museum by subway.","exz":"我们坐地铁去博物馆。"},{"w":"iron","ipa":"/ˈaɪən/","ipaus":"/ˈaɪərn/","pos":"名词 / 动词","zh":["铁（金属，火车的铁轨也用它做）","熨斗","（动词）熨（衣服）"],"ex":"The old bridge is made of iron.","exz":"这座老桥是用铁做的。"},{"w":"motorcycle","ipa":"/ˈməʊtəsaɪkl/","ipaus":"/ˈmoʊtərsaɪkl/","pos":"名词","zh":["摩托车（口语常简称 motorbike）"],"ex":"A motorcycle is faster than a bike.","exz":"摩托车比自行车快。"}]},{"id":"people","name":"人物职业","emoji":"🧑‍🚒","intro":"身边的大人都在做什么工作？这一组还包含学校里的人物：同学、班长、副班长。说某人的职业，用 He is a teacher. 别忘了 a 或 an。","words":[{"w":"actor","ipa":"/ˈæktə(r)/","pos":"名词","zh":["男演员","（泛指）演员（女演员是 actress）"],"ex":"My uncle is an actor.","exz":"我叔叔是一名演员。"},{"w":"TV reporter","ipa":"/ˌtiː ˈviː rɪˈpɔːtə(r)/","ipaus":"/ˌtiː ˈviː rɪˈpɔːrtər/","pos":"名词","zh":["电视台记者"],"ex":"The TV reporter asked us some questions.","exz":"电视台记者问了我们几个问题。"},{"w":"engineer","ipa":"/ˌendʒɪˈnɪə(r)/","ipaus":"/ˌendʒɪˈnɪr/","pos":"名词","zh":["工程师","（火车）司机（美式旧用法）"],"ex":"An engineer builds bridges and roads.","exz":"工程师建造桥梁和道路。"},{"w":"accountant","ipa":"/əˈkaʊntənt/","pos":"名词","zh":["会计，会计员"],"ex":"The accountant works with numbers all day.","exz":"会计整天和数字打交道。"},{"w":"policeman","ipa":"/pəˈliːsmən/","pos":"名词","zh":["（男）警察（复数 policemen；女警察是 policewoman）"],"ex":"The policeman helped the little girl.","exz":"警察帮助了那个小女孩。"},{"w":"salesperson","ipa":"/ˈseɪlzpɜːsn/","ipaus":"/ˈseɪlzpɜːrsn/","pos":"名词","zh":["销售员，售货员（不分男女的说法）"],"ex":"The salesperson showed us some shoes.","exz":"售货员给我们拿了几双鞋。"},{"w":"cleaner","ipa":"/ˈkliːnə(r)/","pos":"名词","zh":["清洁工","清洁剂，去污剂"],"ex":"The cleaner keeps our school clean.","exz":"清洁工让我们的学校保持干净。"},{"w":"assistant","ipa":"/əˈsɪstənt/","pos":"名词","zh":["售货员，店员（shop assistant）","助手，助理"],"ex":"The shop assistant is very kind.","exz":"那位店员非常和气。"},{"w":"police","ipa":"/pəˈliːs/","pos":"名词","zh":["警察（总称，the police 作复数用）","警方"],"ex":"The police keep our city safe.","exz":"警察保护我们城市的安全。"},{"w":"teacher","ipa":"/ˈtiːtʃə(r)/","pos":"名词","zh":["教师，老师","（引申）教导者"],"ex":"Our teacher is very kind to us.","exz":"我们的老师对我们很和蔼。"},{"w":"tutor","ipa":"/ˈtjuːtə(r)/","ipaus":"/ˈtuːtər/","pos":"名词 / 动词","zh":["家庭教师，辅导老师","（大学）导师","（动词）辅导，家教"],"ex":"My tutor helps me with maths.","exz":"我的家教帮我学数学。"},{"w":"student","ipa":"/ˈstjuːdnt/","ipaus":"/ˈstuːdnt/","pos":"名词","zh":["学生","（美式）中小学生；研究者"],"ex":"There are forty students in my class.","exz":"我们班有四十名学生。"},{"w":"classmate","ipa":"/ˈklɑːsmeɪt/","ipaus":"/ˈklæsmeɪt/","pos":"名词","zh":["同班同学"],"ex":"Lily is my classmate.","exz":"莉莉是我的同班同学。"},{"w":"schoolmate","ipa":"/ˈskuːlmeɪt/","pos":"名词","zh":["同校同学（同校但不同班）"],"ex":"He is my schoolmate but not in my class.","exz":"他是我同校的同学，但不在我们班。"},{"w":"monitor","ipa":"/ˈmɒnɪtə(r)/","ipaus":"/ˈmɑːnɪtər/","pos":"名词 / 动词","zh":["班长","（电脑的）显示器","（动词）监控，监测"],"ex":"Our monitor helps the teacher every day.","exz":"我们班长每天帮老师做事。"},{"w":"vice-monitor","ipa":"/ˌvaɪs ˈmɒnɪtə(r)/","ipaus":"/ˌvaɪs ˈmɑːnɪtər/","pos":"名词","zh":["副班长（vice- 表示「副的」）"],"ex":"She is the vice-monitor of our class.","exz":"她是我们班的副班长。"}]},{"id":"animals","name":"动物","emoji":"🦊","intro":"从家里的猫狗到森林里的狼、草原上的斑马，这一组还有不少难认的词：mole 鼹鼠、vole 田鼠、weasel 黄鼠狼。先认识熟悉的，再挑战冷门的，看谁记得多。","words":[{"w":"pig / swine","ipa":"/pɪɡ/","alt":"swine 读 /swaɪn/（较正式或书面的说法，也可指野猪）","pos":"名词","zh":["猪","（口语）贪吃的人，邋遢的人"],"ex":"The pig is sleeping in the mud.","exz":"猪在泥里睡觉。"},{"w":"boar","ipa":"/bɔː(r)/","pos":"名词","zh":["种猪，公猪","野猪"],"ex":"A boar has sharp tusks.","exz":"公猪有尖尖的獠牙。"},{"w":"hog","ipa":"/hɒɡ/","ipaus":"/hɑːɡ/","pos":"名词","zh":["阉猪，肥猪（美式也泛指猪）","（口语）贪吃的人"],"ex":"The farmer keeps a hog in the yard.","exz":"农民在院子里养着一头肥猪。"},{"w":"gopher","ipa":"/ˈɡəʊfə(r)/","ipaus":"/ˈɡoʊfər/","pos":"名词","zh":["囊地鼠（北美穴居的小动物，会在地下打洞）"],"ex":"A gopher digs holes in the ground.","exz":"囊地鼠在地下打洞。"},{"w":"Guinea pig","ipa":"/ˈɡɪni pɪɡ/","pos":"名词","zh":["豚鼠，荷兰猪","（引申）实验对象，被试者"],"ex":"My Guinea pig likes carrots.","exz":"我的豚鼠喜欢吃胡萝卜。"},{"w":"marmot","ipa":"/ˈmɑːmət/","ipaus":"/ˈmɑːrmət/","pos":"名词","zh":["土拨鼠，旱獭"],"ex":"A marmot sleeps through the winter.","exz":"土拨鼠整个冬天都在睡觉。"},{"w":"mole","ipa":"/məʊl/","ipaus":"/moʊl/","pos":"名词","zh":["鼹鼠（在地下生活的小兽）","痣","（引申）内奸，潜伏者"],"ex":"A mole lives under the ground.","exz":"鼹鼠住在地下。"},{"w":"mouse","ipa":"/maʊs/","pos":"名词","zh":["家鼠，老鼠（复数 mice /maɪs/）","（电脑）鼠标"],"ex":"The cat caught a mouse.","exz":"猫抓住了一只老鼠。"},{"w":"vole","ipa":"/vəʊl/","ipaus":"/voʊl/","pos":"名词","zh":["田鼠（比家鼠尾巴短，生活在田野里）"],"ex":"A vole runs quickly in the field.","exz":"田鼠在田里跑得很快。"},{"w":"monkey","ipa":"/ˈmʌŋki/","pos":"名词","zh":["猴子","（口语）淘气的孩子"],"ex":"The monkey is eating a banana.","exz":"猴子在吃香蕉。"},{"w":"dog","ipa":"/dɒɡ/","ipaus":"/dɔːɡ/","pos":"名词","zh":["狗","（口语）家伙（lucky dog 幸运儿）"],"ex":"My dog likes to run in the park.","exz":"我的狗喜欢在公园里跑。"},{"w":"badger","ipa":"/ˈbædʒə(r)/","pos":"名词","zh":["獾（脸上有黑白花纹，夜里出来找食）"],"ex":"A badger lives in a hole in the ground.","exz":"獾住在地下的洞里。"},{"w":"weasel","ipa":"/ˈwiːzl/","pos":"名词","zh":["鼬，黄鼠狼","（引申）狡猾的人"],"ex":"A weasel has a long, thin body.","exz":"黄鼠狼的身体又长又细。"},{"w":"otter","ipa":"/ˈɒtə(r)/","ipaus":"/ˈɑːtər/","pos":"名词","zh":["水獭"],"ex":"An otter can swim very well.","exz":"水獭很会游泳。"},{"w":"fox","ipa":"/fɒks/","ipaus":"/fɑːks/","pos":"名词","zh":["狐狸","（引申）狡猾的人（as clever as a fox 像狐狸一样聪明）"],"ex":"The fox has a long, bushy tail.","exz":"狐狸有一条蓬松的长尾巴。"},{"w":"hyena","ipa":"/haɪˈiːnə/","pos":"名词","zh":["鬣狗"],"ex":"A hyena makes a laughing sound.","exz":"鬣狗会发出像笑一样的声音。"},{"w":"wolf","ipa":"/wʊlf/","pos":"名词","zh":["狼（复数 wolves /wʊlvz/）","（引申）贪婪的人"],"ex":"The wolf lives in the forest.","exz":"狼住在森林里。"},{"w":"squirrel","ipa":"/ˈskwɪrəl/","ipaus":"/ˈskwɜːrəl/","pos":"名词","zh":["松鼠"],"ex":"A squirrel likes to eat nuts.","exz":"松鼠喜欢吃坚果。"},{"w":"dormouse","ipa":"/ˈdɔːmaʊs/","ipaus":"/ˈdɔːrmaʊs/","pos":"名词","zh":["睡鼠（一种爱睡觉的小鼠）"],"ex":"A dormouse sleeps most of the day.","exz":"睡鼠一天里大部分时间都在睡觉。"},{"w":"beaver","ipa":"/ˈbiːvə(r)/","pos":"名词","zh":["河狸，海狸（会用树枝筑水坝）"],"ex":"A beaver builds a dam in the river.","exz":"河狸在河里筑水坝。"},{"w":"ferret","ipa":"/ˈferɪt/","pos":"名词","zh":["雪貂","（动词）搜寻（ferret out 查出）"],"ex":"A ferret is a small, clever animal.","exz":"雪貂是一种聪明的小动物。"},{"w":"bear","ipa":"/beə(r)/","ipaus":"/ber/","pos":"名词 / 动词","zh":["熊","（动词）忍受（I can't bear it. 我受不了了）","携带（bear gifts 带着礼物）"],"ex":"The bear is looking for honey.","exz":"熊在找蜂蜜。"},{"w":"rabbit","ipa":"/ˈræbɪt/","pos":"名词","zh":["兔子，家兔"],"ex":"The rabbit has long ears.","exz":"兔子有长长的耳朵。"},{"w":"hare","ipa":"/heə(r)/","ipaus":"/her/","pos":"名词","zh":["野兔（比家兔大、耳朵更长）"],"ex":"A hare can run very fast.","exz":"野兔跑得非常快。"},{"w":"rat","ipa":"/ræt/","pos":"名词","zh":["鼠（比 mouse 大，常指大老鼠）"],"ex":"A rat is bigger than a mouse.","exz":"大老鼠比家鼠大。"},{"w":"chinchilla","ipa":"/tʃɪnˈtʃɪlə/","pos":"名词","zh":["南美栗鼠，毛丝鼠（也叫「龙猫」，皮毛很软）"],"ex":"A chinchilla has very soft fur.","exz":"南美栗鼠的毛非常柔软。"},{"w":"gilt","ipa":"/ɡɪlt/","pos":"名词","zh":["小母猪（还没生过小猪的母猪）"],"ex":"A gilt is a young female pig.","exz":"小母猪就是年轻的雌猪。"},{"w":"piglet","ipa":"/ˈpɪɡlət/","pos":"名词","zh":["猪崽，小猪"],"ex":"The piglet is drinking milk.","exz":"小猪在喝奶。"},{"w":"sheep","ipa":"/ʃiːp/","pos":"名词","zh":["羊，绵羊（单复数同形：one sheep, two sheep）"],"ex":"Ten sheep are eating grass on the hill.","exz":"十只羊在山坡上吃草。"},{"w":"ewe","ipa":"/juː/","pos":"名词","zh":["母羊"],"ex":"An ewe takes care of her lamb.","exz":"母羊照顾她的小羊羔。"},{"w":"goat","ipa":"/ɡəʊt/","ipaus":"/ɡoʊt/","pos":"名词","zh":["山羊"],"ex":"A goat can climb steep rocks.","exz":"山羊能爬上陡峭的岩石。"},{"w":"lamb","ipa":"/læm/","pos":"名词","zh":["羊羔，小羊","羔羊肉"],"ex":"The lamb is white and soft.","exz":"小羊羔又白又软。"},{"w":"zebra","ipa":"/ˈzebrə/","ipaus":"/ˈziːbrə/","pos":"名词","zh":["斑马","（斑马线 zebra crossing）"],"ex":"A zebra has black and white stripes.","exz":"斑马身上有黑白条纹。"},{"w":"antelope","ipa":"/ˈæntɪləʊp/","ipaus":"/ˈæntɪloʊp/","pos":"名词","zh":["羚羊"],"ex":"An antelope can run very fast.","exz":"羚羊跑得很快。"},{"w":"gazelle","ipa":"/ɡəˈzel/","pos":"名词","zh":["小羚羊，瞪羚（跑得快、跳得高）"],"ex":"A gazelle jumps high over the grass.","exz":"瞪羚在草地上高高跳跃。"},{"w":"deer","ipa":"/dɪə(r)/","ipaus":"/dɪr/","pos":"名词","zh":["鹿（单复数同形）"],"ex":"A deer is eating grass by the river.","exz":"一只鹿在河边吃草。"},{"w":"reindeer","ipa":"/ˈreɪndɪə(r)/","ipaus":"/ˈreɪndɪr/","pos":"名词","zh":["驯鹿（圣诞老人拉雪橇的鹿）"],"ex":"Santa's reindeer pull the sleigh.","exz":"圣诞老人的驯鹿拉着雪橇。"},{"w":"giraffe","ipa":"/dʒəˈrɑːf/","ipaus":"/dʒəˈræf/","pos":"名词","zh":["长颈鹿"],"ex":"A giraffe has a very long neck.","exz":"长颈鹿有很长的脖子。"},{"w":"camel","ipa":"/ˈkæml/","pos":"名词","zh":["骆驼","（颜色）驼色"],"ex":"A camel can live in the desert.","exz":"骆驼能在沙漠里生活。"},{"w":"elephant","ipa":"/ˈelɪfənt/","pos":"名词","zh":["象，大象","（引申）庞然大物"],"ex":"An elephant has a long trunk.","exz":"大象有长长的鼻子。"},{"w":"rhinoceros","ipa":"/raɪˈnɒsərəs/","ipaus":"/raɪˈnɑːsərəs/","pos":"名词","zh":["犀牛（口语常简称 rhino）"],"ex":"A rhinoceros has a horn on its nose.","exz":"犀牛的鼻子上有一只角。"},{"w":"hippopotamus","ipa":"/ˌhɪpəˈpɒtəməs/","ipaus":"/ˌhɪpəˈpɑːtəməs/","pos":"名词","zh":["河马（口语常简称 hippo）"],"ex":"A hippopotamus loves to stay in water.","exz":"河马喜欢待在水里。"},{"w":"lion","ipa":"/ˈlaɪən/","pos":"名词","zh":["狮，狮子","（引申）名人，大人物"],"ex":"The lion is called the king of animals.","exz":"狮子被称为百兽之王。"},{"w":"dolphin","ipa":"/ˈdɒlfɪn/","ipaus":"/ˈdɑːlfɪn/","pos":"名词","zh":["海豚"],"ex":"A dolphin is clever and friendly.","exz":"海豚聪明又友好。"},{"w":"porpoise","ipa":"/ˈpɔːpəs/","ipaus":"/ˈpɔːrpəs/","pos":"名词","zh":["大西洋鼠海豚（一种小型的海豚类动物）"],"ex":"A porpoise swims quickly in the sea.","exz":"鼠海豚在海里游得很快。"},{"w":"seal","ipa":"/siːl/","pos":"名词 / 动词","zh":["海豹","印章，图章","（动词）封上，密封"],"ex":"A seal lives near cold water.","exz":"海豹生活在寒冷的水域附近。"},{"w":"walrus","ipa":"/ˈwɔːlrəs/","pos":"名词","zh":["海象（长着两根长牙）"],"ex":"A walrus has two long tusks.","exz":"海象有两根长长的牙。"}]},{"id":"farm","name":"家畜","emoji":"🐄","intro":"农场里的动物和它们的「家人」：horse 马、cow 奶牛、bull 公牛、calf 牛犊。注意 cattle 是「牛」的统称，永远是复数。","words":[{"w":"horse","ipa":"/hɔːs/","ipaus":"/hɔːrs/","pos":"名词","zh":["马","（体操的）鞍马"],"ex":"I can ride a horse.","exz":"我会骑马。"},{"w":"donkey / ass","ipa":"/ˈdɒŋki/","alt":"ass 读 /æs/（指驴；口语另有「傻瓜」义，不要随便对人说）","pos":"名词","zh":["驴","（引申）固执的人"],"ex":"A donkey can carry heavy bags.","exz":"驴能背很重的袋子。"},{"w":"mule","ipa":"/mjuːl/","pos":"名词","zh":["骡，马骡（马和驴的后代）","（引申）固执的人","（拖鞋）棉拖鞋（英式）"],"ex":"A mule is strong but stubborn.","exz":"骡子力气大但是很固执。"},{"w":"cattle","ipa":"/ˈkætl/","pos":"名词","zh":["牛（总称，永远作复数用）","（引申）牲口，家畜"],"ex":"The farmer has fifty cattle.","exz":"这位农民养了五十头牛。"},{"w":"bull / ox","ipa":"/bʊl/","alt":"ox 读 /ɒks/（复数是 oxen），尤指阉过的公牛","pos":"名词","zh":["雄牛，公牛","（bull）雄性动物（bull elephant 公象）"],"ex":"A bull is very strong.","exz":"公牛非常强壮。"},{"w":"cow","ipa":"/kaʊ/","pos":"名词","zh":["雌牛，奶牛","（母象、母鲸等大动物的雌性）"],"ex":"A cow gives us milk.","exz":"奶牛给我们牛奶。"},{"w":"calf","ipa":"/kɑːf/","ipaus":"/kæf/","pos":"名词","zh":["年幼的牛，牛犊（复数 calves /kɑːvz/）","小腿，腓肠"],"ex":"The calf stays close to its mother.","exz":"小牛犊紧跟着它的妈妈。"},{"w":"herd","ipa":"/hɜːd/","ipaus":"/hɜːrd/","pos":"名词 / 动词","zh":["牛的统称","兽群，牧群（a herd of cattle 一群牛）","（动词）把……赶到一起"],"ex":"A herd of cattle is eating grass.","exz":"一群牛在吃草。"},{"w":"water buffalo","ipa":"/ˈwɔːtə ˈbʌfələʊ/","ipaus":"/ˈwɔːtər ˈbʌfəloʊ/","pos":"名词","zh":["水牛（会下水，常用来耕田）"],"ex":"A water buffalo works in the rice field.","exz":"水牛在稻田里干活。"},{"w":"yak","ipa":"/jæk/","pos":"名词","zh":["牦牛（生活在高原上，毛很长）"],"ex":"A yak lives in the high mountains.","exz":"牦牛生活在高山上。"},{"w":"sheep","ipa":"/ʃiːp/","pos":"名词","zh":["绵羊（单复数同形）","（引申）胆小的人，随大流的人"],"ex":"Sheep eat grass on the hill.","exz":"羊在山坡上吃草。"}]},{"id":"food-shops","name":"食品与商店","emoji":"🥩","intro":"肉店里的各种肉（beef 牛肉、pork 猪肉、steak 牛排），加上街上的小店（书店、花店、邮局）。买肉用 meat，注意 beef 是牛肉、pork 是猪肉，不能说成 cow meat、pig meat。","words":[{"w":"meat","ipa":"/miːt/","pos":"名词","zh":["肉（指可食用的肉，不可数）","（引申）内容，实质（the meat of the story 故事的要点）"],"ex":"I eat meat every day.","exz":"我每天都吃肉。"},{"w":"beef","ipa":"/biːf/","pos":"名词","zh":["牛肉（不可数）","（口语）抱怨，发牢骚（动词）"],"ex":"We had beef noodles for lunch.","exz":"我们午饭吃了牛肉面。"},{"w":"veal","ipa":"/viːl/","pos":"名词","zh":["小牛肉（用小牛做的肉，不可数）"],"ex":"Veal is meat from a young cow.","exz":"小牛肉是小牛的肉。"},{"w":"lamb","ipa":"/læm/","pos":"名词","zh":["羊肉（不可数）","羊羔，小羊"],"ex":"Lamb is often cooked with potatoes.","exz":"羊肉常和土豆一起炖。"},{"w":"sirloin","ipa":"/ˈsɜːlɔɪn/","ipaus":"/ˈsɜːrlɔɪn/","pos":"名词","zh":["牛脊肉，西冷（牛背上的好肉）"],"ex":"Sirloin steak is very tender.","exz":"西冷牛排非常嫩。"},{"w":"steak","ipa":"/steɪk/","pos":"名词","zh":["牛排","（鱼、肉的）厚片，排（fish steak 鱼排）"],"ex":"He likes his steak well done.","exz":"他喜欢牛排煎得全熟。"},{"w":"chop","ipa":"/tʃɒp/","ipaus":"/tʃɑːp/","pos":"名词 / 动词","zh":["连骨肉，排骨（pork chop 猪排）","（动词）砍，切碎"],"ex":"We had pork chops for dinner.","exz":"我们晚饭吃猪排。"},{"w":"cutlet","ipa":"/ˈkʌtlət/","pos":"名词","zh":["肉条，肉片","炸肉排（chicken cutlet 炸鸡排）"],"ex":"She fried some chicken cutlets.","exz":"她炸了几块鸡排。"},{"w":"stew","ipa":"/stjuː/","ipaus":"/stuː/","pos":"名词 / 动词","zh":["炖肉，炖菜","（动词）炖，煨"],"ex":"Mother cooked beef stew for us.","exz":"妈妈给我们炖了牛肉。"},{"w":"roast","ipa":"/rəʊst/","ipaus":"/roʊst/","pos":"名词 / 动词","zh":["烤肉（roast beef 烤牛肉）","（动词）烤，烘"],"ex":"We had roast beef on Sunday.","exz":"星期天我们吃了烤牛肉。"},{"w":"pork","ipa":"/pɔːk/","ipaus":"/pɔːrk/","pos":"名词","zh":["猪肉（不可数）"],"ex":"Pork is often cooked with vegetables.","exz":"猪肉常和蔬菜一起做。"},{"w":"bookstore","ipa":"/ˈbʊkstɔː(r)/","ipaus":"/ˈbʊkstɔːr/","pos":"名词","zh":["书店（英式常说 bookshop）"],"ex":"I buy books in the bookstore.","exz":"我在书店买书。"},{"w":"grain store","ipa":"/ɡreɪn stɔː(r)/","ipaus":"/ɡreɪn stɔːr/","pos":"名词","zh":["粮店（卖米、面、杂粮的店）"],"ex":"We buy rice at the grain store.","exz":"我们在粮店买米。"},{"w":"food store","ipa":"/fuːd stɔː(r)/","ipaus":"/fuːd stɔːr/","pos":"名词","zh":["食品店（卖各种吃的东西）"],"ex":"The food store sells milk and eggs.","exz":"食品店卖牛奶和鸡蛋。"},{"w":"coal store","ipa":"/kəʊl stɔː(r)/","ipaus":"/koʊl stɔːr/","pos":"名词","zh":["煤店，煤铺（卖取暖用煤的店，旧时常见）"],"ex":"Long ago people bought coal at a coal store.","exz":"很久以前人们在煤店买煤。"},{"w":"meat (butcher's) shop","ipa":"/miːt (ˈbʊtʃəz) ʃɒp/","ipaus":"/miːt (ˈbʊtʃərz) ʃɑːp/","pos":"名词","zh":["肉店（也可以只说 the butcher's，肉铺）"],"ex":"We buy fresh meat at the butcher's shop.","exz":"我们在肉店买新鲜肉。"},{"w":"wine shop","ipa":"/waɪn ʃɒp/","ipaus":"/waɪn ʃɑːp/","pos":"名词","zh":["酒店，酒类商店（只卖酒，不是住人的旅馆）"],"ex":"The wine shop sells drinks for grown-ups.","exz":"酒类商店卖大人喝的酒。"},{"w":"flower shop","ipa":"/ˈflaʊə ʃɒp/","ipaus":"/ˈflaʊər ʃɑːp/","pos":"名词","zh":["花店（也作 florist's）"],"ex":"I bought some roses at the flower shop.","exz":"我在花店买了几枝玫瑰。"},{"w":"tea house","ipa":"/tiː haʊs/","pos":"名词","zh":["茶馆，茶楼"],"ex":"We drank tea in a tea house.","exz":"我们在一家茶馆喝茶。"},{"w":"barber's shop (hairdresser's)","ipa":"/ˈbɑːbəz ʃɒp/","ipaus":"/ˈbɑːrbərz ʃɑːp/","pos":"名词","zh":["理发店（barber 多指给男士理发，hairdresser 男女都行）"],"ex":"Dad gets a haircut at the barber's shop.","exz":"爸爸在理发店理发。"},{"w":"bath house","ipa":"/bɑːθ haʊs/","ipaus":"/bæθ haʊs/","pos":"名词","zh":["洗澡堂，公共浴室（旧时的说法）"],"ex":"In the past, people went to the bath house.","exz":"过去人们去澡堂洗澡。"},{"w":"inn / hotel","ipa":"/ɪn/","alt":"hotel 读 /həʊˈtel/（美式 /hoʊˈtel/）","pos":"名词","zh":["旅店，小旅馆（inn 常指乡村小店，也供吃饭）","旅馆，酒店（hotel 规模较大）"],"ex":"We stayed at a small inn by the lake.","exz":"我们住在湖边的一家小旅店。"},{"w":"post office","ipa":"/ˈpəʊst ɒfɪs/","ipaus":"/ˈpoʊst ɑːfɪs/","pos":"名词","zh":["邮局"],"ex":"I send letters at the post office.","exz":"我在邮局寄信。"}]},{"id":"character","name":"性格形容词","emoji":"😊","intro":"怎样形容一个人的品格？honest 诚实、hard-working 勤劳、kind-hearted 好心。这一组词也常在「自我介绍」里用到，说自己的优点时可以挑几个试试。","words":[{"w":"able","ipa":"/ˈeɪbl/","pos":"形容词","zh":["有才干的，能干的","be able to do sth. 有能力做某事（= can）"],"ex":"She is able to swim across the pool.","exz":"她有能力游过整个泳池。"},{"w":"active","ipa":"/ˈæktɪv/","pos":"形容词","zh":["主动的，活跃的","积极的（take an active part in 积极参加）","（火山）活的"],"ex":"Tom is very active in class.","exz":"汤姆在课上非常活跃。"},{"w":"friendly","ipa":"/ˈfrendli/","pos":"形容词","zh":["友好的，友善的（be friendly to sb. 对某人友好）","（事物）使用方便的（user-friendly 好用的）"],"ex":"Our new neighbour is very friendly.","exz":"我们的新邻居非常友好。"},{"w":"frugal","ipa":"/ˈfruːɡl/","pos":"形容词","zh":["俭朴的，节省的（不浪费钱和东西）","（饭菜）简单的"],"ex":"My grandma is frugal with money.","exz":"我奶奶用钱很节省。"},{"w":"generous","ipa":"/ˈdʒenərəs/","pos":"形容词","zh":["宽宏大量的，大方的（愿意给别人）","丰富的，充足的（a generous meal 丰盛的一餐）"],"ex":"He is generous and shares his toys.","exz":"他很大方，愿意分享玩具。"},{"w":"gentle","ipa":"/ˈdʒentl/","pos":"形容词","zh":["有礼貌的，温和的","轻柔的，不重的（a gentle wind 微风）","（动词）抚摸（gentle a horse）"],"ex":"Be gentle with the little cat.","exz":"对小猫要温柔一点。"},{"w":"hard-working","ipa":"/ˌhɑːd ˈwɜːkɪŋ/","ipaus":"/ˌhɑːrd ˈwɜːrkɪŋ/","pos":"形容词","zh":["勤劳的，努力的，用功的"],"ex":"She is a hard-working student.","exz":"她是个用功的学生。"},{"w":"honest","ipa":"/ˈɒnɪst/","ipaus":"/ˈɑːnɪst/","pos":"形容词","zh":["诚实的，正直的（to be honest 说实话）","坦率的"],"ex":"An honest boy never tells lies.","exz":"诚实的男孩从不说谎。"},{"w":"humble","ipa":"/ˈhʌmbl/","pos":"形容词","zh":["恭顺的，谦虚的","（出身、房屋）低微的，简陋的"],"ex":"He is humble about his success.","exz":"他对自己的成功很谦虚。"},{"w":"humorous","ipa":"/ˈhjuːmərəs/","pos":"形容词","zh":["幽默的，风趣的","（作品）滑稽的"],"ex":"Our teacher is humorous and makes us laugh.","exz":"我们老师很幽默，常把我们逗笑。"},{"w":"impartial","ipa":"/ɪmˈpɑːʃl/","ipaus":"/ɪmˈpɑːrʃl/","pos":"形容词","zh":["公正的，不偏袒的"],"ex":"A judge must be impartial.","exz":"法官必须公正。"},{"w":"independent","ipa":"/ˌɪndɪˈpendənt/","pos":"形容词","zh":["有主见的，独立的（自己作决定）","独立国家的"],"ex":"She is independent and does things by herself.","exz":"她很有主见，自己的事自己做。"},{"w":"industrious","ipa":"/ɪnˈdʌstriəs/","pos":"形容词","zh":["勤奋的，勤劳的"],"ex":"Industrious ants work all day.","exz":"勤劳的蚂蚁整天工作。"},{"w":"kind-hearted","ipa":"/ˌkaɪnd ˈhɑːtɪd/","ipaus":"/ˌkaɪnd ˈhɑːrtɪd/","pos":"形容词","zh":["好心的，心地善良的"],"ex":"A kind-hearted girl helped the old man.","exz":"一位好心的女孩帮助了那位老人。"},{"w":"modest","ipa":"/ˈmɒdɪst/","ipaus":"/ˈmɑːdɪst/","pos":"形容词","zh":["谦虚的，不吹嘘的","适度的，不太大的（a modest price 不贵的价格）","（衣着）朴素的"],"ex":"He is modest about his good marks.","exz":"他对自己的好成绩很谦虚。"},{"w":"objective","ipa":"/əbˈdʒektɪv/","pos":"形容词 / 名词","zh":["客观的，不带个人感情的","（名词）目标，目的"],"ex":"We should look at things in an objective way.","exz":"我们应当客观地看问题。"},{"w":"orderly","ipa":"/ˈɔːdəli/","ipaus":"/ˈɔːrdərli/","pos":"形容词","zh":["守纪律的，有秩序的","整齐的，有条理的"],"ex":"The children lined up in an orderly way.","exz":"孩子们有秩序地排好了队。"},{"w":"practical","ipa":"/ˈpræktɪkl/","pos":"形容词","zh":["实际的，实用的","善于动手的（a practical person）"],"ex":"This is a practical idea.","exz":"这是个实用的主意。"},{"w":"punctual","ipa":"/ˈpʌŋktʃuəl/","pos":"形容词","zh":["严守时刻的，准时的"],"ex":"Please be punctual for the meeting.","exz":"开会请准时。"},{"w":"reliable","ipa":"/rɪˈlaɪəbl/","pos":"形容词","zh":["可信赖的，可靠的","（信息）确实的"],"ex":"He is a reliable friend.","exz":"他是个可靠的朋友。"},{"w":"responsible","ipa":"/rɪˈspɒnsəbl/","ipaus":"/rɪˈspɑːnsəbl/","pos":"形容词","zh":["负责的，有责任心的","be responsible for 对……负责"],"ex":"She is responsible for the class pets.","exz":"她负责照看班里的宠物。"},{"w":"sincere","ipa":"/sɪnˈsɪə(r)/","ipaus":"/sɪnˈsɪr/","pos":"形容词","zh":["真诚的，诚恳的","（信末）your sincere friend 你的真诚朋友"],"ex":"Please accept my sincere thanks.","exz":"请接受我真诚的谢意。"},{"w":"smart","ipa":"/smɑːt/","ipaus":"/smɑːrt/","pos":"形容词","zh":["精明的，聪明的（美式常用）","整洁漂亮的（a smart coat 一件漂亮的外套）","（动词）刺痛"],"ex":"She is smart and learns fast.","exz":"她很聪明，学得很快。"},{"w":"steady","ipa":"/ˈstedi/","pos":"形容词 / 动词","zh":["踏实的，稳重的；稳定的","（动词）使稳住，使平稳"],"ex":"He is steady and never gives up.","exz":"他很踏实，从不放弃。"},{"w":"strict","ipa":"/strɪkt/","pos":"形容词","zh":["严格的，严厉的（be strict with sb. 对某人严格）","严谨的，精确的"],"ex":"Our teacher is strict but kind.","exz":"我们老师严格但很和蔼。"}]},{"id":"spring-festival","name":"春节词汇","emoji":"🧧","intro":"春节怎么说？这一组都是「中国节日」对「英文说法」：守岁 staying-up、红包 red packets、年夜饭 the dinner on New Year's Eve。它们是短语，不是单个单词，读的时候要连起来说。","words":[{"w":"The Spring Festival","ipa":"/ðə ˈsprɪŋ ˈfestɪvl/","pos":"名词","zh":["春节（农历新年，中国最重要的传统节日）","口语也可说 Chinese New Year"],"ex":"The Spring Festival is the most important festival in China.","exz":"春节是中国最重要的节日。"},{"w":"lunar calendar","ipa":"/ˈluːnə ˈkælɪndə(r)/","ipaus":"/ˈluːnər ˈkælɪndər/","pos":"名词","zh":["农历，阴历（按月亮圆缺排的历法）","lunar 意为「月亮的」"],"ex":"The date of the Spring Festival comes from the lunar calendar.","exz":"春节的日期是按农历算的。"},{"w":"lunar January","ipa":"/ˈluːnə ˈdʒænjuəri/","ipaus":"/ˈluːnər ˈdʒænjueri/","alt":"the first month by lunar calendar（农历第一个月）","pos":"名词","zh":["正月，农历第一个月"],"ex":"The Lantern Festival is on the 15th of lunar January.","exz":"元宵节在正月十五。"},{"w":"New Year's Eve","ipa":"/ˌnjuː jɪəz ˈiːv/","ipaus":"/ˌnuː jɪrz ˈiːv/","alt":"eve of lunar New Year（农历年的除夕）","pos":"名词","zh":["除夕（农历年的最后一天晚上）","（公历的）12 月 31 日晚上"],"ex":"We have a big dinner on New Year's Eve.","exz":"除夕我们吃一顿丰盛的晚饭。"},{"w":"the beginning of New Year","ipa":"/ðə bɪˈɡɪnɪŋ əv ˌnjuː ˈjɪə(r)/","ipaus":"/ðə bɪˈɡɪnɪŋ əv ˌnuː ˈjɪr/","pos":"短语","zh":["初一，新年的开始（农历正月初一）"],"ex":"People wear new clothes at the beginning of New Year.","exz":"初一这天人们穿上新衣服。"},{"w":"The Lantern Festival","ipa":"/ðə ˈlæntən ˈfestɪvl/","ipaus":"/ðə ˈlæntərn ˈfestɪvl/","pos":"名词","zh":["元宵节（农历正月十五，看花灯、吃元宵）"],"ex":"We eat sweet dumplings at the Lantern Festival.","exz":"元宵节我们吃元宵。"},{"w":"have the Spring Festival","ipa":"/ˌhæv ðə ˈsprɪŋ ˈfestɪvl/","alt":"Guo-nian（汉语拼音「过年」）","pos":"短语","zh":["过年，过春节","指整个春节期间走亲访友、休息庆祝"],"ex":"The whole family goes home to have the Spring Festival.","exz":"全家人都回家过年。"},{"w":"poetic couplet","ipa":"/pəʊˈetɪk ˈkʌplət/","ipaus":"/poʊˈetɪk ˈkʌplət/","alt":"two successive rhyming lines in poetry（两句相连、押韵对仗的诗句）","pos":"名词","zh":["对联（上下两句字数相同、讲究对仗）","couplet 指「两行对句」"],"ex":"A couplet has two lines of the same length.","exz":"对联上下两句字数相同。"},{"w":"Spring Festival couplets","ipa":"/ˈsprɪŋ ˈfestɪvl ˈkʌpləts/","pos":"名词","zh":["春联（过春节时贴在门上的红纸对联）"],"ex":"We put up Spring Festival couplets on the door.","exz":"我们在门上贴春联。"},{"w":"paper-cuts","ipa":"/ˈpeɪpə kʌts/","ipaus":"/ˈpeɪpər kʌts/","pos":"名词","zh":["剪纸（用红纸剪出图案的民间艺术）","一件剪纸作品（paper-cut）"],"ex":"Grandma makes beautiful paper-cuts.","exz":"奶奶剪出漂亮的剪纸。"},{"w":"New Year paintings","ipa":"/ˌnjuː ˈjɪə ˈpeɪntɪŋz/","ipaus":"/ˌnuː ˈjɪr ˈpeɪntɪŋz/","pos":"名词","zh":["年画（过年时贴的吉祥图画）"],"ex":"There is a New Year painting on the wall.","exz":"墙上贴着一张年画。"},{"w":"special purchases for the Spring Festival","ipa":"/ˈspeʃl ˈpɜːtʃɪsɪz fə ðə ˈsprɪŋ ˈfestɪvl/","ipaus":"/ˈspeʃl ˈpɜːrtʃɪsɪz fər ðə ˈsprɪŋ ˈfestɪvl/","alt":"do Spring Festival shopping（买年货）","pos":"短语","zh":["买年货（为过春节采购食品和用品）","purchase 意为「购买的东西」"],"ex":"Mother is busy with special purchases for the Spring Festival.","exz":"妈妈正忙着买年货。"},{"w":"propose a toast","ipa":"/prəˈpəʊz ə təʊst/","ipaus":"/prəˈpoʊz ə toʊst/","pos":"短语","zh":["敬酒，提议干杯","toast 在这里是「举杯祝酒」"],"ex":"Father proposed a toast to the whole family.","exz":"爸爸向全家人敬酒。"},{"w":"lantern","ipa":"/ˈlæntən/","ipaus":"/ˈlæntərn/","alt":"a portable light（可以提着走的灯）","pos":"名词","zh":["灯笼","提灯","（灯塔上的）灯室"],"ex":"Red lanterns hang in the street.","exz":"街上挂着红灯笼。"},{"w":"fireworks","ipa":"/ˈfaɪəwɜːks/","ipaus":"/ˈfaɪərwɜːrks/","pos":"名词","zh":["烟花，焰火（复数）","firework 单数指一枚烟花"],"ex":"We watch fireworks on New Year's Eve.","exz":"除夕我们看烟花。"},{"w":"firecrackers","ipa":"/ˈfaɪəkrækəz/","ipaus":"/ˈfaɪərkrækərz/","pos":"名词","zh":["爆竹，鞭炮（复数）"],"ex":"The firecrackers are very loud.","exz":"鞭炮的声音很响。"},{"w":"red packets","ipa":"/red ˈpækɪts/","pos":"名词","zh":["红包（装钱的红色信封，过年时长辈给孩子）","英式也说 red envelopes"],"ex":"Children get red packets from their parents.","exz":"孩子们从父母那里得到红包。"},{"w":"lion dance","ipa":"/ˈlaɪən dɑːns/","ipaus":"/ˈlaɪən dæns/","pos":"名词","zh":["舞狮（两人披狮形道具表演的民间舞蹈）"],"ex":"We watched a lion dance in the square.","exz":"我们在广场看了舞狮。"},{"w":"dragon dance","ipa":"/ˈdræɡən dɑːns/","ipaus":"/ˈdræɡən dæns/","pos":"名词","zh":["舞龙（多人举着长龙道具舞动的表演）"],"ex":"The dragon dance is very exciting.","exz":"舞龙非常精彩。"},{"w":"traditional opera","ipa":"/trəˈdɪʃənl ˈɒprə/","ipaus":"/trəˈdɪʃənl ˈɑːprə/","pos":"名词","zh":["戏曲，传统戏剧（如京剧 Peking opera）"],"ex":"Grandpa likes watching traditional opera.","exz":"爷爷喜欢看戏曲。"},{"w":"variety show","ipa":"/vəˈraɪəti ʃəʊ/","ipaus":"/vəˈraɪəti ʃoʊ/","alt":"vaudeville（旧时的一种杂耍表演）","pos":"名词","zh":["杂耍，综艺表演","variety 意为「多种多样」"],"ex":"There was a variety show in the park.","exz":"公园里有一场杂耍表演。"},{"w":"riddles written on lanterns","ipa":"/ˈrɪdlz ˈrɪtn ɒn ˈlæntənz/","ipaus":"/ˈrɪdlz ˈrɪtn ɑːn ˈlæntərnz/","pos":"名词","zh":["灯谜（写在灯笼上让人猜的谜语）","riddle 意为「谜语」"],"ex":"Children like to guess riddles written on lanterns.","exz":"孩子们喜欢猜灯谜。"},{"w":"exhibit of lanterns","ipa":"/ɪɡˈzɪbɪt əv ˈlæntənz/","ipaus":"/ɪɡˈzɪbɪt əv ˈlæntərnz/","pos":"名词","zh":["灯会，元宵灯展（也常说 lantern show）"],"ex":"The exhibit of lanterns was beautiful.","exz":"灯会非常漂亮。"},{"w":"staying-up","ipa":"/ˌsteɪɪŋ ˈʌp/","pos":"名词","zh":["守岁（除夕夜不睡觉，等到新年到来）"],"ex":"Staying-up is a tradition on New Year's Eve.","exz":"守岁是除夕夜的传统。"},{"w":"pay New Year's call","ipa":"/peɪ ˌnjuː jɪəz ˈkɔːl/","ipaus":"/peɪ ˌnuː jɪrz ˈkɔːl/","alt":"give New Year's greetings 或 New Year's visit（拜年、走亲访友）","pos":"短语","zh":["拜年，走亲访友道贺","call 在这里指「拜访」"],"ex":"We pay New Year's calls to our relatives.","exz":"我们去亲戚家拜年。"},{"w":"taboo","ipa":"/təˈbuː/","pos":"名词 / 形容词","zh":["禁忌，忌讳（春节里不能做的事）","（形容词）忌讳的，禁止的"],"ex":"There are some taboos during the Spring Festival.","exz":"春节期间有一些禁忌。"},{"w":"get rid of the ill-fortune","ipa":"/ɡet rɪd əv ði ˌɪl ˈfɔːtʃuːn/","ipaus":"/ɡet rɪd əv ði ˌɪl ˈfɔːrtʃən/","pos":"短语","zh":["去晦气（除掉一年的坏运气）","ill-fortune 意为「坏运气、厄运」"],"ex":"People clean the house to get rid of the ill-fortune.","exz":"人们打扫房子来去晦气。"},{"w":"offer sacrifices to one's ancestors","ipa":"/ˈɒfə ˈsækrɪfaɪsɪz tə wʌnz ˈænsestəz/","ipaus":"/ˈɔːfər ˈsækrɪfaɪsɪz tə wʌnz ˈænsestərz/","pos":"短语","zh":["祭祖宗，祭祖","sacrifice 意为「祭品」，ancestor 意为「祖先」"],"ex":"The family offered sacrifices to their ancestors.","exz":"一家人祭了祖宗。"},{"w":"gift money","ipa":"/ɡɪft ˈmʌni/","pos":"名词","zh":["压岁钱（长辈给孩子的过年钱，通常装在红包里）"],"ex":"My grandma gave me gift money.","exz":"奶奶给了我压岁钱。"},{"w":"bid farewell to the old year","ipa":"/bɪd ˌfeəˈwel tə ði ˌəʊld ˈjɪə(r)/","ipaus":"/bɪd ˌferˈwel tə ði ˌoʊld ˈjɪr/","pos":"短语","zh":["辞旧岁（告别过去的一年）","bid farewell 意为「告别」"],"ex":"Firecrackers bid farewell to the old year.","exz":"鞭炮声辞别了旧岁。"},{"w":"spring cleaning","ipa":"/ˌsprɪŋ ˈkliːnɪŋ/","pos":"名词","zh":["扫房（过年前的大扫除）","（英式）春季大扫除"],"ex":"We do spring cleaning before the festival.","exz":"过年前我们扫房。"},{"w":"Nian-gao / rice cake","ipa":"/raɪs keɪk/","alt":"New Year cake；Nian-gao 是汉语拼音「年糕」","pos":"名词","zh":["年糕（过年吃的黏米糕，「糕」与「高」谐音，寓意年年高升）"],"ex":"We eat rice cake at the Spring Festival.","exz":"春节我们吃年糕。"},{"w":"family reunion dinner","ipa":"/ˈfæməli ˌriːˈjuːniən ˈdɪnə(r)/","ipaus":"/ˈfæməli ˌriːˈjuːniən ˈdɪnər/","pos":"名词","zh":["团圆饭（全家人团聚在一起吃的饭）","reunion 意为「团聚」"],"ex":"The family reunion dinner is very important.","exz":"团圆饭非常重要。"},{"w":"the dinner on New Year's Eve","ipa":"/ðə ˈdɪnə ɒn ˌnjuː jɪəz ˈiːv/","ipaus":"/ðə ˈdɪnər ɑːn ˌnuː jɪrz ˈiːv/","pos":"名词","zh":["年夜饭（除夕晚上那顿饭）"],"ex":"The dinner on New Year's Eve is the most important meal of the year.","exz":"年夜饭是一年里最重要的一顿饭。"},{"w":"Jiao-zi / dumplings","ipa":"/ˈdʌmplɪŋz/","alt":"Jiao-zi 是汉语拼音「饺子」","pos":"名词","zh":["饺子（过年常吃，形状像元宝）","dumpling 泛指「有馅的面食」"],"ex":"We make dumplings together on New Year's Eve.","exz":"除夕我们一起包饺子。"},{"w":"eight treasures rice pudding","ipa":"/ˌeɪt ˈtreʒəz raɪs ˈpʊdɪŋ/","pos":"名词","zh":["八宝饭（糯米加八种果料做成的甜饭）"],"ex":"Eight treasures rice pudding is sweet and soft.","exz":"八宝饭又甜又软。"},{"w":"candy tray","ipa":"/ˈkændi treɪ/","pos":"名词","zh":["糖果盘（过年摆在桌上招待客人的糖盘）"],"ex":"The candy tray is full of sweets.","exz":"糖果盘里装满了糖。"},{"w":"assorted candies","ipa":"/əˈsɔːtɪd ˈkændiz/","ipaus":"/əˈsɔːrtɪd ˈkændiz/","alt":"原文注：sweet and fortune（甜美与好运）","pos":"名词","zh":["什锦糖（多种口味混在一起的糖）","assorted 意为「各式各样的」"],"ex":"Children like the assorted candies.","exz":"孩子们喜欢什锦糖。"},{"w":"candied winter melon","ipa":"/ˈkændid ˈwɪntə ˈmelən/","ipaus":"/ˈkændid ˈwɪntər ˈmelən/","alt":"原文注：growth and good health（成长与健康）","pos":"名词","zh":["蜜冬瓜（糖渍的冬瓜条）","candied 意为「用糖渍的」"],"ex":"Candied winter melon is a sweet snack.","exz":"蜜冬瓜是一种甜食。"},{"w":"cumquat","ipa":"/ˈkʌmkwɒt/","ipaus":"/ˈkʌmkwɑːt/","alt":"原文注：prosperity（兴旺）；也拼作 kumquat","pos":"名词","zh":["金桔（过年摆放的吉祥水果，寓意大吉大利）"],"ex":"A cumquat tree stands by the door.","exz":"门边摆着一棵金桔树。"}]},{"id":"clothes","name":"服装","emoji":"👕","intro":"从头到脚的衣服：shirt 衬衫、sweater 毛衣、trousers 裤子、jeans 牛仔裤。注意 trousers、jeans、clothes 都是复数，说「一条裤子」要讲 a pair of trousers。","words":[{"w":"clothes","ipa":"/kləʊðz/","ipaus":"/kloʊðz/","pos":"名词","zh":["衣服，服装（复数，没有单数形式）","不能直接跟数字，说 a lot of clothes 或 two pieces of clothes"],"ex":"Put on your clothes quickly.","exz":"快点穿上衣服。"},{"w":"wardrobe","ipa":"/ˈwɔːdrəʊb/","ipaus":"/ˈwɔːrdroʊb/","pos":"名词","zh":["服装（一个人的全部衣服，原文义）","衣柜（放衣服的柜子）"],"ex":"She hung her dress in the wardrobe.","exz":"她把裙子挂进了衣柜。"},{"w":"clothing","ipa":"/ˈkləʊðɪŋ/","ipaus":"/ˈkloʊðɪŋ/","pos":"名词","zh":["服装（总称，不可数）","（clothing 比 clothes 更书面）"],"ex":"Warm clothing is needed in winter.","exz":"冬天需要保暖的衣服。"},{"w":"habit","ipa":"/ˈhæbɪt/","pos":"名词","zh":["个人依习惯、身份而着的服装（原文义，今天很少用）","习惯（最常用的意思）","（修女的）道袍"],"ex":"A nun wears a special habit.","exz":"修女穿着特别的道袍。"},{"w":"ready-made clothes","ipa":"/ˌredi ˈmeɪd kləʊðz/","ipaus":"/ˌredi ˈmeɪd kloʊðz/","alt":"ready-to-wear clothes（成衣，做好的现成衣服）","pos":"名词","zh":["成衣（工厂做好、直接买的衣服，不是定做的）"],"ex":"I bought ready-made clothes in the shop.","exz":"我在店里买了成衣。"},{"w":"garments","ipa":"/ˈɡɑːmənts/","ipaus":"/ˈɡɑːrmənts/","pos":"名词","zh":["外衣，衣服（garment 的复数，比 clothes 正式）"],"ex":"These garments are made of cotton.","exz":"这些衣服是棉做的。"},{"w":"town clothes","ipa":"/taʊn kləʊðz/","ipaus":"/taʊn kloʊðz/","pos":"名词","zh":["外衣（旧时的说法，指外出见客时穿的衣服）"],"ex":"In the old days people wore town clothes to visit friends.","exz":"过去人们出门访友要穿外衣。"},{"w":"suit","ipa":"/suːt/","ipaus":"/suːt/","pos":"名词 / 动词","zh":["男外衣，西装（上衣加裤子一套）","（一）套衣服","（动词）适合，合身"],"ex":"My father wears a suit to work.","exz":"我爸爸穿西服上班。"},{"w":"pocket","ipa":"/ˈpɒkɪt/","ipaus":"/ˈpɑːkɪt/","pos":"名词","zh":["衣袋，口袋","（口袋里的）一笔钱","（台球桌的）袋"],"ex":"I put the key in my pocket.","exz":"我把钥匙放进了口袋。"},{"w":"sleeve","ipa":"/sliːv/","pos":"名词","zh":["袖子","（唱片的）封套"],"ex":"Roll up your sleeves before washing.","exz":"洗手前把袖子卷起来。"},{"w":"cuff","ipa":"/kʌf/","pos":"名词","zh":["袖口","（裤脚的）翻边"],"ex":"There is a button on my cuff.","exz":"我的袖口上有一颗扣子。"},{"w":"shirt","ipa":"/ʃɜːt/","ipaus":"/ʃɜːrt/","pos":"名词","zh":["衬衫（常指男式衬衫）"],"ex":"He wears a white shirt.","exz":"他穿着一件白衬衫。"},{"w":"blouse","ipa":"/blaʊz/","pos":"名词","zh":["紧身女衫，女式衬衫"],"ex":"She wears a blue blouse.","exz":"她穿着一件蓝色的女衬衫。"},{"w":"T-shirt","ipa":"/ˈtiː ʃɜːt/","ipaus":"/ˈtiː ʃɜːrt/","pos":"名词","zh":["短袖圆领衫，体恤衫"],"ex":"I like this red T-shirt.","exz":"我喜欢这件红T恤。"},{"w":"vest","ipa":"/vest/","pos":"名词","zh":["汗衫（美式作 undershirt）","（英式）背心，马甲"],"ex":"He wears a vest under his shirt.","exz":"他在衬衫里面穿了件汗衫。"},{"w":"polo shirt","ipa":"/ˈpəʊləʊ ʃɜːt/","ipaus":"/ˈpoʊloʊ ʃɜːrt/","pos":"名词","zh":["球衣，翻领短袖衫（领口有扣子的T恤）"],"ex":"The players wear polo shirts.","exz":"队员们穿着球衣。"},{"w":"dress","ipa":"/dres/","pos":"名词 / 动词","zh":["女服，连衣裙","（不可数）服装，衣着","（动词）穿衣（get dressed 穿好衣服）"],"ex":"She looks nice in her new dress.","exz":"她穿新连衣裙很好看。"},{"w":"everyday clothes","ipa":"/ˈevrideɪ kləʊðz/","ipaus":"/ˈevrideɪ kloʊðz/","pos":"名词","zh":["便服（平时日常穿的衣服）"],"ex":"I wear everyday clothes at home.","exz":"我在家穿便服。"},{"w":"uniform","ipa":"/ˈjuːnɪfɔːm/","ipaus":"/ˈjuːnɪfɔːrm/","pos":"名词","zh":["制服（校服 school uniform、警服等）","（形容词）统一的，一致的"],"ex":"We wear a school uniform.","exz":"我们穿校服。"},{"w":"overalls","ipa":"/ˈəʊvərɔːlz/","ipaus":"/ˈoʊvərɔːlz/","pos":"名词","zh":["工装裤（带背带的宽松工作裤）","（英式）连身工作服"],"ex":"The farmer wears overalls at work.","exz":"农民干活时穿工装裤。"},{"w":"rompers","ipa":"/ˈrɒmpəz/","ipaus":"/ˈrɑːmpərz/","pos":"名词","zh":["连背心的背带裤（婴儿或幼儿穿的连身短裤）"],"ex":"The baby looks cute in rompers.","exz":"宝宝穿连身裤很可爱。"},{"w":"sweater","ipa":"/ˈswetə(r)/","pos":"名词","zh":["运动衫，针织衫，毛衣"],"ex":"Put on a sweater; it is cold.","exz":"穿上毛衣吧，天冷了。"},{"w":"trousers","ipa":"/ˈtraʊzəz/","ipaus":"/ˈtraʊzərz/","pos":"名词","zh":["裤子（英式，复数；美式说 pants）","一条裤子是 a pair of trousers"],"ex":"These trousers are too long.","exz":"这条裤子太长了。"},{"w":"jeans","ipa":"/dʒiːnz/","pos":"名词","zh":["牛仔裤（复数）","一条牛仔裤是 a pair of jeans"],"ex":"He wears blue jeans.","exz":"他穿着蓝色牛仔裤。"},{"w":"coat","ipa":"/kəʊt/","ipaus":"/koʊt/","pos":"名词","zh":["女大衣，外套","（动物的）毛皮","（动词）给……涂上一层"],"ex":"Button up your coat.","exz":"把外套扣好。"},{"w":"topcoat","ipa":"/ˈtɒpkəʊt/","ipaus":"/ˈtɑːpkoʊt/","pos":"名词","zh":["夹大衣，薄外套（穿在西服外面的）"],"ex":"He wore a topcoat over his suit.","exz":"他在西服外面穿了一件夹大衣。"},{"w":"jacket","ipa":"/ˈdʒækɪt/","pos":"名词","zh":["短外衣，夹克","（书、唱片的）护封"],"ex":"This jacket has two pockets.","exz":"这件夹克有两个口袋。"},{"w":"hood","ipa":"/hʊd/","pos":"名词","zh":["风帽，兜帽","（汽车的）引擎盖（美式）","（炉灶上的）排烟罩"],"ex":"Put up your hood; it is raining.","exz":"把帽子戴上，下雨了。"},{"w":"scarf / muffler","ipa":"/skɑːf/","ipaus":"/skɑːrf/","alt":"muffler 读 /ˈmʌflə(r)/（围巾的一种旧说法，今天多说 scarf）","pos":"名词","zh":["围巾（复数 scarves /skɑːvz/）","头巾"],"ex":"Wrap a scarf around your neck.","exz":"把围巾围在脖子上。"},{"w":"shawl","ipa":"/ʃɔːl/","pos":"名词","zh":["大披巾，披肩（女士披在肩上的方形或三角形织物）"],"ex":"Grandma put a shawl on her shoulders.","exz":"奶奶在肩上披了一条披巾。"},{"w":"short trousers","ipa":"/ʃɔːt ˈtraʊzəz/","ipaus":"/ʃɔːrt ˈtraʊzərz/","pos":"名词","zh":["短裤（日常更常说 shorts）"],"ex":"He wears short trousers in summer.","exz":"夏天他穿短裤。"},{"w":"belt","ipa":"/belt/","pos":"名词","zh":["裤带，腰带","（机器）皮带","地带（a green belt 绿化带）"],"ex":"Tighten your belt a little.","exz":"把腰带系紧一点。"},{"w":"skirt","ipa":"/skɜːt/","ipaus":"/skɜːrt/","pos":"名词","zh":["裙子","（引申）绕开（动词 skirt around 绕开）"],"ex":"Her skirt is yellow.","exz":"她的裙子是黄色的。"},{"w":"underwear / underclothes","ipa":"/ˈʌndəweə(r)/","ipaus":"/ˈʌndərwer/","alt":"underclothes 读 /ˈʌndəkləʊðz/（内衣裤的另一种说法）","pos":"名词","zh":["内衣裤（不可数）"],"ex":"Pack clean underwear for the trip.","exz":"旅行要带上干净的内衣。"},{"w":"briefs","ipa":"/briːfs/","pos":"名词","zh":["短内裤，三角裤（复数）","（brief 的复数）摘要，简报"],"ex":"He bought two pairs of briefs.","exz":"他买了两条短内裤。"},{"w":"panties","ipa":"/ˈpæntiz/","pos":"名词","zh":["女短内裤（复数）"],"ex":"She put her clean panties in the drawer.","exz":"她把干净的内裤放进抽屉。"},{"w":"brassiere / bra","ipa":"/ˈbræziə(r)/","ipaus":"/brəˈzɪr/","alt":"bra 读 /brɑː/（口语常用的简称）","pos":"名词","zh":["乳罩，文胸（口语通常说 bra）"],"ex":"This bra is made of cotton.","exz":"这件文胸是棉做的。"}]},{"id":"academic","name":"学术与学校","emoji":"🎓","intro":"学校里的大词：学期 term、学年 academic year、奖学金 scholarship。这些词在小学生的日常里用得少，但看成绩单、听老师讲话时会遇到，认识它们不吃亏。","words":[{"w":"academic activities","ipa":"/ˌækəˈdemɪk ækˈtɪvətiz/","pos":"名词","zh":["学术活动（学习、研究类的活动）","academic 意为「学术的、学习的」"],"ex":"Our school has many academic activities.","exz":"我们学校有很多学术活动。"},{"w":"\"Three Goods\" student","ipa":"/ˌθriː ˈɡʊdz ˈstjuːdnt/","ipaus":"/ˌθriː ˈɡʊdz ˈstuːdnt/","pos":"名词","zh":["三好学生（品德好、学习好、身体好）"],"ex":"My sister is a \"Three Goods\" student.","exz":"我姐姐是三好学生。"},{"w":"social activities","ipa":"/ˈsəʊʃl ækˈtɪvətiz/","ipaus":"/ˈsoʊʃl ækˈtɪvətiz/","pos":"名词","zh":["社会活动（走出校园参加的公益、实践类活动）"],"ex":"Students join social activities after class.","exz":"学生们课后参加社会活动。"},{"w":"scholarship","ipa":"/ˈskɒləʃɪp/","ipaus":"/ˈskɑːlərʃɪp/","pos":"名词","zh":["奖学金（学校发给好学生的钱）","学问，学术研究"],"ex":"She won a scholarship to the school.","exz":"她拿到了这所学校的奖学金。"},{"w":"student council","ipa":"/ˈstjuːdnt ˈkaʊnsl/","ipaus":"/ˈstuːdnt ˈkaʊnsl/","pos":"名词","zh":["学生会（由学生组成、帮学校做事的组织）"],"ex":"The student council plans the school party.","exz":"学生会策划学校的联欢会。"},{"w":"educational system","ipa":"/ˌedʒuˈkeɪʃənl ˈsɪstəm/","ipaus":"/ˌedʒuˈkeɪʃənl ˈsɪstəm/","pos":"名词","zh":["学制，教育制度（一个国家怎样办学校、读几年）"],"ex":"The educational system starts with primary school.","exz":"学制从小学开始。"},{"w":"academic year","ipa":"/ˌækəˈdemɪk ˈjɪə(r)/","ipaus":"/ˌækəˈdemɪk ˈjɪr/","pos":"名词","zh":["学年（学校一年从开学到放假的时间，通常九月开始）"],"ex":"The academic year begins in September.","exz":"学年从九月开始。"},{"w":"term","ipa":"/tɜːm/","ipaus":"/tɜːrm/","pos":"名词","zh":["学期（英式，一学年常分三个 term）","术语，词语","（合同的）条款"],"ex":"We have two terms in a school year.","exz":"我们一学年有两个学期。"},{"w":"grades","ipa":"/ɡreɪdz/","pos":"名词","zh":["分数，成绩（美式，grade 的复数）","（grade 的复数）年级"],"ex":"She gets good grades in maths.","exz":"她的数学成绩很好。"},{"w":"scores","ipa":"/skɔːz/","ipaus":"/skɔːrz/","pos":"名词","zh":["分数，得分（score 的复数）","（比赛）比分"],"ex":"His scores are higher this time.","exz":"他这次的分数更高。"},{"w":"examination","ipa":"/ɪɡˌzæmɪˈneɪʃn/","pos":"名词","zh":["考试（口语常简称 exam）","检查，审查"],"ex":"The final examination is in June.","exz":"期末考试在六月。"},{"w":"grade","ipa":"/ɡreɪd/","pos":"名词","zh":["年级（美式：Grade Five 五年级）","分数，成绩","等级，级别"],"ex":"I am in Grade Five.","exz":"我上五年级。"},{"w":"class","ipa":"/klɑːs/","ipaus":"/klæs/","pos":"名词","zh":["班级（Class Two 二班）","课，一节课","（社会）阶层"],"ex":"There are forty students in our class.","exz":"我们班有四十名学生。"},{"w":"degree","ipa":"/dɪˈɡriː/","pos":"名词","zh":["学位（学士、硕士、博士）","度（角度、温度的度数）","程度"],"ex":"My mother has a university degree.","exz":"我妈妈有大学学位。"},{"w":"student","ipa":"/ˈstjuːdnt/","ipaus":"/ˈstuːdnt/","pos":"名词","zh":["学生","研究者，学者"],"ex":"Every student has a desk.","exz":"每个学生都有一张课桌。"},{"w":"graduate","ipa":"/ˈɡrædʒuət/","alt":"作动词时读 /ˈɡrædʒueɪt/（毕业）","pos":"名词 / 动词","zh":["毕业生（名词）","（动词）毕业（graduate from 从……毕业）"],"ex":"My brother is a college graduate.","exz":"我哥哥是大学毕业生。"},{"w":"boarder","ipa":"/ˈbɔːdə(r)/","ipaus":"/ˈbɔːrdər/","pos":"名词","zh":["寄宿生，住校生（住在学校的学生）"],"ex":"A boarder lives in the school.","exz":"寄宿生住在学校里。"},{"w":"prize fellow","ipa":"/praɪz ˈfeləʊ/","ipaus":"/praɪz ˈfeloʊ/","pos":"名词","zh":["奖学金生（靠奖学金读书的学生）","（大学）研究员"],"ex":"He studies hard and becomes a prize fellow.","exz":"他努力学习，成了奖学金生。"}]}];
+</script>
+<script>
+(function(){
+  'use strict';
+
+  var TOTAL = 0;
+  DATA.forEach(function(g){ TOTAL += g.words.length; });
+
+  var state = {q:'', group:'all', slow:false, twice:false, onlyUnread:false, view:'cards', read:{}};
+  var drill = {gi:0, wi:0, hideZh:false};
+
+  var groupsEl = document.getElementById('groups');
+  var chipsEl = document.getElementById('chips');
+  var cardsView = document.getElementById('cardsView');
+  var drillView = document.getElementById('drillView');
+  var drillCard = document.getElementById('drillCard');
+  var drillGroupEl = document.getElementById('drillGroup');
+  var drillProgressEl = document.getElementById('drillProgress');
+  var drillFillEl = document.getElementById('drillFill');
+  var searchField = document.getElementById('q');
+  var filterNote = document.getElementById('filterNote');
+  var ptext = document.getElementById('ptext');
+  var fillEl = document.getElementById('fill');
+  var trackEl = document.getElementById('track');
+  var toastEl = document.getElementById('toast');
+  var btnSlow = document.getElementById('slow');
+  var btnTwice = document.getElementById('twice');
+  var btnUnread = document.getElementById('unread');
+  var btnViewCards = document.getElementById('viewCards');
+  var btnViewDrill = document.getElementById('viewDrill');
+
+  /* ---------- helpers ---------- */
+  function esc(s){
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){
+      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+    });
+  }
+  function posLabel(p){
+    if(!p) return '';
+    if(p === 'num.') return '数词';
+    return p;
+  }
+  function keyOf(gi, wi){ return gi + '-' + wi; }
+  function idxOfGroup(id){
+    for(var i=0;i<DATA.length;i++){ if(DATA[i].id === id) return i; }
+    return 0;
+  }
+
+  var toastTimer = null;
+  function toast(msg){
+    toastEl.textContent = msg;
+    toastEl.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){ toastEl.classList.remove('show'); }, 2600);
+  }
+
+  /* ---------- speech ---------- */
+  var canSpeak = ('speechSynthesis' in window) && (typeof window.SpeechSynthesisUtterance === 'function');
+  var chosenVoice = null;
+  var warned = false;
+  var speechToken = 0;
+
+  function voiceScore(v){
+    var n = (v.name || '').toLowerCase();
+    var s = 0;
+    if(n.indexOf('google') >= 0) s -= 2;
+    if(n.indexOf('natural') >= 0) s -= 2;
+    if(n.indexOf('microsoft') >= 0) s -= 1;
+    if(/female/i.test(n)) s -= 1;
+    return s;
+  }
+  function refreshVoices(){
+    if(!canSpeak) return;
+    var all = window.speechSynthesis.getVoices() || [];
+    if(!all.length) return;
+    var gb = [], us = [], any = [];
+    all.forEach(function(v){
+      var l = (v.lang || '').replace('_','-');
+      if(/^en-GB/i.test(l)) gb.push(v);
+      else if(/^en-US/i.test(l)) us.push(v);
+      else if(/^en/i.test(l)) any.push(v);
+    });
+    function best(list){
+      if(!list.length) return null;
+      return list.slice().sort(function(a,b){ return voiceScore(a) - voiceScore(b); })[0];
+    }
+    chosenVoice = best(gb) || best(us) || best(any) || null;
+    if(!chosenVoice && !warned){
+      warned = true;
+      toast('没找到英语语音，可在系统里装上英语语音包后再试');
+    }
+  }
+  if(canSpeak){
+    refreshVoices();
+    if(typeof window.speechSynthesis.addEventListener === 'function'){
+      window.speechSynthesis.addEventListener('voiceschanged', refreshVoices);
+    } else {
+      window.speechSynthesis.onvoiceschanged = refreshVoices;
+    }
+    setTimeout(refreshVoices, 600);
+  }
+
+  function ttsText(w){
+    var s = String(w).replace(/\([^)]*\)/g, ' ').trim();
+    if(s.indexOf('/') >= 0){
+      var parts = s.split('/').map(function(t){ return t.trim(); }).filter(Boolean);
+      var notPinyin = null;
+      for(var i=0;i<parts.length;i++){
+        if(!/^[A-Z][a-z]*-[a-z]/.test(parts[i])){ notPinyin = parts[i]; break; }
+      }
+      s = notPinyin || parts[0] || s;
+    }
+    return s.replace(/\s+/g,' ').trim();
+  }
+
+  function speak(text, opts){
+    opts = opts || {};
+    if(!canSpeak){ toast('这个浏览器不能朗读，请用 Chrome 或 Edge 打开'); return; }
+    var slow = (typeof opts.slow === 'boolean') ? opts.slow : state.slow;
+    var twice = (typeof opts.twice === 'boolean') ? opts.twice : state.twice;
+    var token = ++speechToken;
+    try { window.speechSynthesis.cancel(); } catch(e){}
+    var times = 0;
+    function once(){
+      if(token !== speechToken) return;
+      var u = new SpeechSynthesisUtterance(text);
+      if(chosenVoice){ u.voice = chosenVoice; u.lang = chosenVoice.lang; }
+      else { u.lang = 'en-GB'; }
+      u.rate = slow ? 0.6 : 0.88;
+      u.pitch = 1;
+      u.volume = 1;
+      u.onend = function(){
+        if(token !== speechToken) return;
+        times++;
+        if(twice && times < 2) setTimeout(once, 420);
+      };
+      u.onerror = function(){};
+      window.speechSynthesis.speak(u);
+    }
+    setTimeout(once, 70);
+  }
+
+  function flash(btn, text){
+    if(!btn) return;
+    btn.classList.add('is-speaking');
+    var ms = Math.max(900, Math.min(2600, String(text).length * 130));
+    setTimeout(function(){ btn.classList.remove('is-speaking'); }, ms);
+  }
+
+  function sayWord(gi, wi, btn){
+    var it = DATA[gi].words[wi];
+    var t = ttsText(it.w);
+    speak(t);
+    markRead(gi, wi);
+    flash(btn, t);
+  }
+
+  /* ---------- progress ---------- */
+  function readCount(gi){
+    var n = 0;
+    DATA[gi].words.forEach(function(_, wi){ if(state.read[keyOf(gi,wi)]) n++; });
+    return n;
+  }
+  function updateProgress(){
+    var n = 0;
+    for(var k in state.read){ if(state.read[k]) n++; }
+    var pct = TOTAL ? (n / TOTAL * 100) : 0;
+    fillEl.style.width = pct.toFixed(2) + '%';
+    ptext.textContent = '已点读 ' + n + ' / ' + TOTAL;
+    trackEl.setAttribute('aria-valuenow', String(n));
+    updateChipCounts();
+  }
+  function updateChipCounts(){
+    var all = 0;
+    for(var k in state.read){ if(state.read[k]) all++; }
+    var chips = chipsEl.children;
+    for(var i=0;i<chips.length;i++){
+      var c = chips[i];
+      var id = c.getAttribute('data-id');
+      var cntEl = c.querySelector('.c-count');
+      if(!cntEl) continue;
+      if(id === 'all'){
+        cntEl.textContent = all ? (all + '/' + TOTAL) : String(TOTAL);
+      } else {
+        var gi = idxOfGroup(id);
+        var r = readCount(gi);
+        cntEl.textContent = r ? (r + '/' + DATA[gi].words.length) : String(DATA[gi].words.length);
+      }
+    }
+  }
+  function markRead(gi, wi){
+    var k = keyOf(gi,wi);
+    if(state.read[k]) return;
+    state.read[k] = true;
+    var card = document.querySelector('.card[data-key="' + k + '"]');
+    if(card) card.classList.add('is-read');
+    updateProgress();
+  }
+
+  /* ---------- cards ---------- */
+  function mark(text, q){
+    var s = String(text);
+    if(!q) return esc(s);
+    var i = s.toLowerCase().indexOf(q.toLowerCase());
+    if(i < 0) return esc(s);
+    return esc(s.slice(0,i)) + '<mark>' + esc(s.slice(i, i + q.length)) + '</mark>' + esc(s.slice(i + q.length));
+  }
+
+  function cardHTML(g, gi, it, wi, q){
+    var k = keyOf(gi,wi);
+    var ipaUS = it.ipaus ? '<span class="a">美 ' + esc(it.ipaus) + '</span>' : '';
+    var zh = it.zh.map(function(z){ return '<li>' + mark(z, q) + '</li>'; }).join('');
+    var alt = it.alt ? '<p class="alt">' + esc(it.alt) + '</p>' : '';
+    var read = state.read[k] ? ' is-read' : '';
+    return '<article class="card' + read + '" data-key="' + k + '">' +
+      '<div class="card-top">' +
+        '<button class="word" type="button" data-key="' + k + '" aria-label="朗读 ' + esc(it.w) + '">' +
+          '<span class="w" lang="en">' + mark(it.w, q) + '</span><span class="spk" aria-hidden="true">🔈</span>' +
+        '</button>' +
+        '<span class="pos">' + esc(posLabel(it.pos)) + '</span>' +
+      '</div>' +
+      '<p class="ipa"><span class="u">英 ' + esc(it.ipa) + '</span>' + ipaUS + '</p>' +
+      '<ul class="zh">' + zh + '</ul>' +
+      alt +
+      '<p class="ex"><span class="ex-lbl">例</span><span class="ex-en" lang="en">' + esc(it.ex) + '</span>' +
+        '<span class="exz"><span class="ex-lbl">译</span>' + esc(it.exz) + '</span></p>' +
+    '</article>';
+  }
+
+  function matchWord(it, ql){
+    if(String(it.w).toLowerCase().indexOf(ql) >= 0) return true;
+    if(String(it.pos || '').toLowerCase().indexOf(ql) >= 0) return true;
+    for(var i=0;i<it.zh.length;i++){
+      if(String(it.zh[i]).toLowerCase().indexOf(ql) >= 0) return true;
+    }
+    if(it.alt && String(it.alt).toLowerCase().indexOf(ql) >= 0) return true;
+    return false;
+  }
+
+  function renderCards(){
+    var q = state.q.trim();
+    var ql = q.toLowerCase();
+    var html = '';
+    var shown = 0;
+    DATA.forEach(function(g, gi){
+      if(state.group !== 'all' && state.group !== g.id) return;
+      var cards = [];
+      g.words.forEach(function(it, wi){
+        if(state.onlyUnread && state.read[keyOf(gi,wi)]) return;
+        if(ql && !matchWord(it, ql)) return;
+        cards.push(cardHTML(g, gi, it, wi, q));
+      });
+      if(!cards.length) return;
+      shown += cards.length;
+      var gcount = (ql || state.onlyUnread)
+        ? (cards.length + ' / ' + g.words.length + ' 个词')
+        : (g.words.length + ' 个词');
+      html += '<section class="group" id="g-' + esc(g.id) + '">' +
+        '<div class="g-head"><span class="g-emoji" aria-hidden="true">' + esc(g.emoji) + '</span>' +
+          '<h2 class="g-name">' + esc(g.name) + '</h2>' +
+          '<span class="g-count">' + gcount + '</span></div>' +
+        '<p class="g-intro">' + esc(g.intro) + '</p>' +
+        '<div class="grid">' + cards.join('') + '</div>' +
+      '</section>';
+    });
+
+    if(!html){
+      html = '<div class="empty"><b>没有找到这个单词</b>换个写法试试，比如输入「狗」或者「dog」；也可以直接点上面的主题看全部单词。' +
+        '<br><button type="button" data-act="clear">清空搜索</button></div>';
+    }
+    groupsEl.innerHTML = html;
+
+    var showNote = !!(q || state.onlyUnread);
+    filterNote.hidden = !showNote;
+    if(showNote){
+      var bits = [];
+      if(q) bits.push('搜「' + esc(q) + '」找到 <b>' + shown + '</b> 个词');
+      if(state.onlyUnread) bits.push('只看未读：还剩 <b>' + shown + '</b> 个');
+      filterNote.innerHTML = bits.join('　·　');
+    }
+  }
+
+  /* ---------- chips ---------- */
+  function chipHTML(id, label, count){
+    return '<button class="chip" type="button" data-id="' + esc(id) + '" aria-pressed="false">' +
+      '<span class="c-name">' + esc(label) + '</span><span class="c-count">' + count + '</span></button>';
+  }
+  function renderChips(){
+    var html = chipHTML('all', '全部', TOTAL);
+    DATA.forEach(function(g){
+      html += chipHTML(g.id, g.emoji + ' ' + g.name, g.words.length);
+    });
+    chipsEl.innerHTML = html;
+    syncChips();
+    updateChipCounts();
+  }
+  function syncChips(){
+    var chips = chipsEl.children;
+    for(var i=0;i<chips.length;i++){
+      var c = chips[i];
+      var id = c.getAttribute('data-id');
+      var on = (id === state.group);
+      c.classList.toggle('is-on', on);
+      c.setAttribute('aria-pressed', on ? 'true' : 'false');
+      var dis = (state.view === 'drill' && id === 'all');
+      c.setAttribute('aria-disabled', dis ? 'true' : 'false');
+    }
+  }
+
+  /* ---------- drill ---------- */
+  function renderDrill(){
+    var g = DATA[drill.gi];
+    var it = g.words[drill.wi];
+    drillGroupEl.textContent = g.emoji + '  ' + g.name;
+    drillProgressEl.textContent = '第 ' + (drill.wi + 1) + ' / ' + g.words.length + ' 个';
+    drillFillEl.style.width = ((drill.wi + 1) / g.words.length * 100).toFixed(2) + '%';
+
+    drillCard.classList.toggle('hide-zh', !!drill.hideZh);
+    drillCard.innerHTML =
+      '<button class="big-word" type="button" data-act="play" aria-label="朗读 ' + esc(it.w) + '">' +
+        '<span lang="en">' + esc(it.w) + '</span><span class="spk" aria-hidden="true">🔈</span>' +
+      '</button>' +
+      '<p class="drill-ipa">英 ' + esc(it.ipa) + (it.ipaus ? '　·　美 ' + esc(it.ipaus) : '') + '</p>' +
+      '<span class="pos drill-pos">' + esc(posLabel(it.pos)) + '</span>' +
+      '<ul class="drill-zh">' + it.zh.map(function(z){ return '<li>' + esc(z) + '</li>'; }).join('') + '</ul>' +
+      (it.alt ? '<p class="drill-alt">' + esc(it.alt) + '</p>' : '') +
+      '<p class="drill-ex"><span class="ex-lbl">例</span><span class="ex-en" lang="en">' + esc(it.ex) + '</span>' +
+        '<span class="exz"><span class="ex-lbl">译</span>' + esc(it.exz) + '</span></p>' +
+      '<p class="hidden-note">中文已遮住，先自己说说意思。</p>';
+  }
+
+  function step(d){
+    var gi = drill.gi;
+    var total = DATA[gi].words.length;
+    var wi = drill.wi + d;
+    if(wi < 0){
+      if(gi > 0){ gi--; wi = DATA[gi].words.length - 1; }
+      else { wi = 0; toast('这已经是第一个单词了'); }
+    } else if(wi >= total){
+      if(gi < DATA.length - 1){ gi++; wi = 0; }
+      else { wi = total - 1; toast('这一组已经是最后一个单词啦'); }
+    }
+    drill.gi = gi; drill.wi = wi;
+    if(state.group !== 'all'){ state.group = DATA[gi].id; syncChips(); }
+    renderDrill();
+    sayWord(gi, wi, drillCard.querySelector('.big-word'));
+  }
+
+  function jumpGroup(d){
+    var gi = drill.gi + d;
+    if(gi < 0 || gi >= DATA.length){
+      toast(d < 0 ? '已经是第一组了' : '已经是最后一组了');
+      return;
+    }
+    drill.gi = gi;
+    drill.wi = 0;
+    if(state.group !== 'all'){ state.group = DATA[gi].id; syncChips(); }
+    renderDrill();
+    sayWord(gi, 0, drillCard.querySelector('.big-word'));
+  }
+
+  function setView(v){
+    state.view = v;
+    cardsView.hidden = (v !== 'cards');
+    drillView.hidden = (v !== 'drill');
+    btnViewCards.setAttribute('aria-pressed', v === 'cards' ? 'true' : 'false');
+    btnViewDrill.setAttribute('aria-pressed', v === 'drill' ? 'true' : 'false');
+    searchField.disabled = (v === 'drill');
+    searchField.placeholder = (v === 'drill') ? '跟读模式从上面的主题里选一组' : '搜单词或中文意思，比如 dog、狗';
+    if(v === 'drill'){
+      if(state.group !== 'all'){ drill.gi = idxOfGroup(state.group); drill.wi = 0; }
+      renderDrill();
+    }
+    syncChips();
+  }
+
+  /* ---------- events ---------- */
+  groupsEl.addEventListener('click', function(e){
+    var btn = e.target.closest ? e.target.closest('.word') : null;
+    if(btn){
+      var parts = btn.getAttribute('data-key').split('-');
+      sayWord(+parts[0], +parts[1], btn);
+      return;
+    }
+    var clear = e.target.closest ? e.target.closest('[data-act="clear"]') : null;
+    if(clear){
+      searchField.value = '';
+      state.q = '';
+      state.onlyUnread = false;
+      btnUnread.setAttribute('aria-pressed', 'false');
+      renderCards();
+    }
+  });
+
+  chipsEl.addEventListener('click', function(e){
+    var chip = e.target.closest ? e.target.closest('.chip') : null;
+    if(!chip) return;
+    if(chip.getAttribute('aria-disabled') === 'true') return;
+    var id = chip.getAttribute('data-id');
+    if(state.view === 'drill'){
+      if(id === 'all') return;
+      state.group = id;
+      drill.gi = idxOfGroup(id);
+      drill.wi = 0;
+      syncChips();
+      renderDrill();
+      sayWord(drill.gi, 0, drillCard.querySelector('.big-word'));
+      return;
+    }
+    state.group = id;
+    syncChips();
+    renderCards();
+  });
+
+  drillView.addEventListener('click', function(e){
+    var t = e.target.closest ? e.target.closest('[data-act]') : null;
+    if(!t) return;
+    var act = t.getAttribute('data-act');
+    if(act === 'play'){ sayWord(drill.gi, drill.wi, t.closest('.big-word') || drillCard.querySelector('.big-word')); }
+    else if(act === 'prev'){ step(-1); }
+    else if(act === 'next'){ step(1); }
+    else if(act === 'gprev'){ jumpGroup(-1); }
+    else if(act === 'gnext'){ jumpGroup(1); }
+    else if(act === 'hide'){
+      drill.hideZh = !drill.hideZh;
+      t.setAttribute('aria-pressed', drill.hideZh ? 'true' : 'false');
+      t.textContent = drill.hideZh ? '显示中文' : '遮住中文';
+      renderDrill();
+    }
+  });
+
+  var queryTimer = null;
+  searchField.addEventListener('input', function(){
+    var v = searchField.value;
+    state.q = v;
+    if(v.trim() && state.group !== 'all'){ state.group = 'all'; syncChips(); }
+    clearTimeout(queryTimer);
+    queryTimer = setTimeout(renderCards, 120);
+  });
+  searchField.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && searchField.value){
+      searchField.value = '';
+      state.q = '';
+      renderCards();
+    }
+  });
+
+  btnSlow.addEventListener('click', function(){
+    state.slow = !state.slow;
+    btnSlow.setAttribute('aria-pressed', state.slow ? 'true' : 'false');
+    toast(state.slow ? '慢速朗读：开（再点一次关闭）' : '慢速朗读：关');
+  });
+  btnTwice.addEventListener('click', function(){
+    state.twice = !state.twice;
+    btnTwice.setAttribute('aria-pressed', state.twice ? 'true' : 'false');
+    toast(state.twice ? '每个词读两遍：开' : '每个词读两遍：关');
+  });
+  btnUnread.addEventListener('click', function(){
+    state.onlyUnread = !state.onlyUnread;
+    btnUnread.setAttribute('aria-pressed', state.onlyUnread ? 'true' : 'false');
+    renderCards();
+    toast(state.onlyUnread ? '只看还没点读过的词' : '显示全部单词');
+  });
+  btnViewCards.addEventListener('click', function(){ setView('cards'); });
+  btnViewDrill.addEventListener('click', function(){ setView('drill'); });
+
+  document.addEventListener('keydown', function(e){
+    if(state.view !== 'drill') return;
+    var tag = (e.target && e.target.tagName || '').toLowerCase();
+    if(tag === 'input' || tag === 'textarea') return;
+    if(e.key === 'ArrowRight'){ e.preventDefault(); step(1); }
+    else if(e.key === 'ArrowLeft'){ e.preventDefault(); step(-1); }
+    else if(e.key === ' ' || e.key === 'Spacebar' || e.key === 'Enter'){
+      e.preventDefault();
+      sayWord(drill.gi, drill.wi, drillCard.querySelector('.big-word'));
+    }
+  });
+
+  window.addEventListener('beforeunload', function(){
+    if(canSpeak){ try { window.speechSynthesis.cancel(); } catch(e){} }
+  });
+
+  /* ---------- init ---------- */
+  renderChips();
+  renderCards();
+  updateProgress();
+  drill.gi = 0;
+  drill.wi = 0;
+})();
+</script>
+</body>
+</html>
